@@ -55,7 +55,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             templateUrl: 'templates/iomCalendar.html',
             controller: 'IomCalendarCtrl'
         })
-  .state('tab.calendar', {
+  /*.state('tab.calendar', {
     url: '/calendar',
     views: {
       'tab-calendar': {
@@ -92,7 +92,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
-  });
+  })*/;
 
   // if none of the above states are matched, use this as the fallback
   //$urlRouterProvider.otherwise('/tab/calendar');
