@@ -1,16 +1,38 @@
 <ion-modal-view  ng-controller="CalendarEventDetailsPopUpController">
-<ion-header-bar>
-<a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="calendarEventDetailsGoBack()">Back</a>
+<ion-header-bar class="event-details">
+<a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="calendarEventDetailsGoBack()"></a>
 <h1 class="title">Event Details</h1>
 </ion-header-bar>
-<ion-content>
+<ion-content class="event-details-content">
 <div class="list">
-    <a class="item item-thumbnail-left" href="#">
-    <img ng-src="{{imageUrl}}" alt="">
-    <h2>{{eventTitle}}</h2>
-    <p>{{eventTitle}}</p>
-    </a>
+	<div class="list-block">
+		<div class="logos_block"><img src="images/NJD.png" class="logos" /></div>
+		<div class="logos_block"><img src="images/COL.png" class="logos" /></div>
+		<div class="game-location">@</div>
+		<div class="game-details">
+			<p>Prudential Center - Dec 06th - 7:00 PM EST</p>
+		</div>
+	</div>
 </div>
-
+<div class="list">
+	<div class="list-block">
+		<div class="logos_block"><img src="images/NJD.png" class="logos" /></div>
+		<div class="logos_block"><img src="images/COL.png" class="logos" /></div>
+		<div class="game-location">@</div>
+		<div class="game-details">
+			<p>Prudential Center - Dec 06th - 7:00 PM EST</p>
+		</div>
+	</div>
+</div>
+<div class="list">
+	<div class="list-block">
+		<div class="logos_block"><img src="images/NJD.png" class="logos" /></div>
+		<div class="logos_block"><img src="images/COL.png" class="logos" /></div>
+		<div class="game-location">@</div>
+		<div class="game-details">
+			<p>Prudential Center - Dec 06th - 7:00 PM EST</p>
+		</div>
+	</div>
+</div>
 </ion-content>
 </ion-modal-view>

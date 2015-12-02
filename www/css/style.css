@@ -55,9 +55,51 @@ label.item-input{padding-left:0px;}
 .scroll-content .scroll .list{padding:0px 5px;}
 #gCalendar .fc-view-container .fc-head th{background:rgba(178,178,178,0.5);border-right:1px solid rgba(178,178,178,0.5);padding:3px 0px;}
 #gCalendar .fc-view-container .fc-head th:last-child{border-right:0px;}
+/*#gCalendar .fc-view-container .fc-body td.fc-day{background:rgba(178,178,178,0.05)!important;}
 #gCalendar .fc-view-container .fc-body td.fc-day{background:rgba(178,178,178,0.05)!important;}
-#gCalendar .fc-view-container .fc-body td.fc-day{background:rgba(178,178,178,0.05)!important;}
-#gCalendar .fc-view-container .fc-body td.fc-day.fc-past{background:rgba(178,178,178,0.2)!important;}
+#gCalendar .fc-view-container .fc-body td.fc-day.fc-past{background:rgba(178,178,178,0.2)!important;}*/
 #gCalendar .fc-view-container .fc-body .fc-content-skeleton td.fc-day-number:before{color:#000000;}
 .calendar-legend div span{margin:-3px 5px 0px 10px;width:15px;height:15px;}
 .bar .button.back-button span.back-text{display:none;}
+.login-page{top:44px;}
+.calendar-legend{border:0px;}
+.pane, .view{background:#ededed;}
+.bar.bar-stable, .button.button-calm.button-outline, .event-details{background:linear-gradient(to bottom, #d12030 0%, #d12030 8%, #c41e2d 23%, #89151f 67%, #78121c 82%, #73121a 90%, #73121a 97%, #62141a 100%);}
+.button.button-calm.button-outline:hover, .button.button-calm.button-outline:focus{background:#78121c;}
+.bar.bar-stable .title, .button.button-calm.button-outline{color:#ffffff;font-family:Oswald;border:0px;outline:none;border-radius:5px;}
+body, h1, h2, h3, h4, h5, h6{font-family:Oswald;}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("../fonts/oswald.regular-webfont.eot?1415356711");
+  src: url("../fonts/oswald.regular-webfont.eot?1415356711?#iefix") format('embedded-opentype'), url('../fonts/oswald.regular-webfont.woff?1415356711') format('woff'), url('../fonts/oswald.regular-webfont.ttf?1415356711') format('truetype'), url('../fonts/oswald.regular-webfont.svg?1415356711#oswald') format('svg');
+  font-weight: normal;
+  font-style: normal; 
+}
+@font-face {
+  font-family: "OswaldBold";
+  src: url("../fonts/oswald.bold-webfont.eot?1415356711");
+  src: url("../fonts/oswald.bold-webfont.eot?1415356711?#iefix") format('embedded-opentype'), url('../fonts/oswald.bold-webfont.woff?1415356711') format('woff'), url('../fonts/oswald.bold-webfont.ttf?1415356711') format('truetype'), url('../fonts/oswald.bold-webfont.svg?1415356711#oswaldBold') format('svg');
+  font-weight: normal;
+  font-style: normal; 
+}
+.calendar-views{text-align:right;}.calendar-views a{color:#000000;display:inline-block;padding:3px 10px;font-size:0.85em;text-decoration:none;}.calendar-views a:hover, .calendar-views a:focus, .calendar-views a.active-view{color:#73121a;}
+#gCalendar, .calendar-legend{padding:0px 10px;}#gCalendar .fc-toolbar .fc-center h2{font-size:1.5em;font-weight:normal;line-height:30px;}.calendar-legend div{font-size:0.85em;}
+#gCalendar .fc-toolbar button{background:none;border:0px;box-shadow:none;}
+.fc-row .fc-content-skeleton tbody td, .fc-row .fc-helper-skeleton tbody td{position:relative;}
+.calanderThumbImage{top:-8px;width:100%;right:0px;margin:0px;}
+.calendar-view{padding:0px;}
+.calendar-view .calendar-views{padding:10px;background:rgba(0,0,0,0.1);}
+.calendar-view .calendar-views div{float:right;width:auto;line-height:26px;height:initial;}
+.calendar-view .calendar-views div a{line-height:20px;float:left;}
+.fc-toolbar{margin-bottom:5px;margin-top:10px;}
+.bar-stable .button.button-clear{color:#ffffff;}
+.scroll .row .item{font-family:Arial, Helvetica, sans-serif;text-indent:10px;font-size:1em;}.scroll .row{padding:0px;margin:0px 0px 5px 0px;}.event-details h1, .event-details .button.button-dark.button-clear{color:#ffffff;}
+.bar .button.button-clear.icon-left:before{font-size:20px;}.scroll-content .scroll .list{padding:5px;}
+.list-block{float:left;width:100%;position:relative;}
+.list-block div.logos_block{float:left;width:50%;}
+.list-block img.logos{width:100%;float:left;}
+.event-details-content{padding:2px;}
+.event-details-content.scroll-content .scroll .list{float:left;width:100%;padding:2px;border:1px solid rgba(0,0,0,0.5);position:relative;margin-bottom:5px;}
+.game-location{position:absolute;top:50%;left:50%;width:30px;line-height:30px;margin:-15px 0px 0px -15px;z-index:999;color:#ffffff;text-align:center;font-size:1.75em;}
+.game-details{position:absolute;bottom:0px;color:#ffffff;width:100%;text-align:center;font-size:1.25em;}.game-details p{margin:0px;padding:0px;font-size:0.7em;line-height:35px;}
