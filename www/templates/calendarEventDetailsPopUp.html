@@ -1,0 +1,16 @@
+<ion-modal-view  ng-controller="CalendarEventDetailsPopUpController">
+<ion-header-bar>
+<a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="calendarEventDetailsGoBack()">Back</a>
+<h1 class="title">Event Details</h1>
+</ion-header-bar>
+<ion-content>
+<div class="list">
+    <a class="item item-thumbnail-left" href="#">
+    <img ng-src="{{imageUrl}}" alt="">
+    <h2>{{eventTitle}}</h2>
+    <p>{{eventTitle}}</p>
+    </a>
+</div>
+
+</ion-content>
+</ion-modal-view>

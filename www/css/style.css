@@ -1,0 +1,63 @@
+/* Empty. Add your own CSS if you like */
+
+.fc-agenda-slots td div {
+     height: 40px !important;
+}
+.fc-row.fc-week.fc-widget-content {
+    /*height: 40px;
+    overflow: hidden;*/
+}
+p.error{color:red;}
+
+.orange {box-shadow:inset 0 0 10px orange}
+.divBorder{border: 1px solid; width:34px; height:34px; display:inline-block;top:12px;position: relative;}
+
+.calanderThumbImage{
+	width: 40px;    background-size: contain;
+    background-repeat: no-repeat;
+    height: 40px;
+    top: 22px;
+    position: absolute;
+}
+.fc-event {    border: none 0;
+    background-color:transparent;}
+
+.fc-ltr .fc-basic-view .fc-day-number {
+	text-align: left;
+	position: relative;
+}
+
+.fc-ltr .fc-basic-view .fc-day-number:before {
+	content: " ";
+    display: block;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    position: absolute;
+    opacity: 0.4;
+    left: 0;
+    top: 0;
+    border-radius: 0 0 5px;
+}
+.calendar-legend{overflow: hidden; height: 40px; line-height: 40px; border: 1px solid #ddd; border-top: 0 none;}
+.calendar-legend div{ float: left; width: 100px; height: inherit;}
+.calendar-legend div span{display: inline-block;    width: 25px;    height: 25px;    margin: -5px 0 0 5px;    vertical-align: middle;}
+
+/*  Custom Style Goes Here */
+.list input[type="text"]{border:1px solid rgba(169,169,169,1);padding:4px;}
+.list input[type="text"]:focus{box-shadow:0px -2px 2px rgba(151,151,151,0.65) inset;}
+label.item-input{padding-left:0px;}
+.loginBtnHldr{position:fixed;top:100%;z-index:999;width:100%;padding:0px 5px 5px 5px;}
+.loginBtnHldr button.button.button-block{margin:0px;}
+.scroll .row{padding-bottom:10px;}
+.scroll .row .item{padding:0px;line-height:34px;}
+.scroll .row .item input{background:none;width:100%;}
+.scroll-content .scroll .list{padding:0px 5px;}
+#gCalendar .fc-view-container .fc-head th{background:rgba(178,178,178,0.5);border-right:1px solid rgba(178,178,178,0.5);padding:3px 0px;}
+#gCalendar .fc-view-container .fc-head th:last-child{border-right:0px;}
+#gCalendar .fc-view-container .fc-body td.fc-day{background:rgba(178,178,178,0.05)!important;}
+#gCalendar .fc-view-container .fc-body td.fc-day{background:rgba(178,178,178,0.05)!important;}
+#gCalendar .fc-view-container .fc-body td.fc-day.fc-past{background:rgba(178,178,178,0.2)!important;}
+#gCalendar .fc-view-container .fc-body .fc-content-skeleton td.fc-day-number:before{color:#000000;}
+.calendar-legend div span{margin:-3px 5px 0px 10px;width:15px;height:15px;}
+.bar .button.back-button span.back-text{display:none;}

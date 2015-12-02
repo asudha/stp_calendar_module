@@ -1,0 +1,88 @@
+<ion-view view-title="Calendar UI">
+<!-- <div class="bar bar-subheader">
+    <h2 class="title">STP Calendar</h2>
+</div> -->
+<ion-content class="padding has-subheader">
+<form name="myform" class="form form-horizontal" novalidate="" ng-submit="submitHandler(myform)">
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Background Color</div>
+        <div class="item item-borderless col"><input type="color" ng-model="calendarData.defaultCellColor" /></div>
+    </div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Grid Line Color</div>
+        <div class="item item-borderless col"><input type="color" ng-model="calendarData.gridBorderColor" /></div>
+    </div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Home Cell Color</div>
+        <div class="item item-borderless col"><input type="color" ng-model="calendarData.homeGameCellColor" /></div>
+    </div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Home Event Color</div>
+        <div class="item item-borderless col"><input type="color" ng-model="calendarData.homeGameEventColor" /></div>
+    </div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Away Cell Color</div>
+        <div class="item item-borderless col"><input type="color" ng-model="calendarData.awayGameCellColor" /></div>
+    </div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Away Event Color</div>
+        <div class="item item-borderless col"><input type="color" ng-model="calendarData.awayGameEventColor" /></div>
+    </div>
+
+    <div class="row">
+        <div class="item item-toggle item-borderless col col-75"> Flexible Cell Size </div>
+        <div class="item item-borderless col">
+          <label class="toggle toggle-calm">
+                <input type="checkbox" ng-model="calendarData.isFlexibleCellSize">
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>
+      </div> 
+    </div>
+
+    <div class="row">
+      <div class="item item-toggle item-borderless col col-75"> Google Calendar </div>
+      <div class="item item-borderless col">
+          <label class="toggle toggle-calm">
+                <input type="checkbox" ng-model="calendarData.isGoogleCalendarData">
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>
+      </div>       
+    </div>
+
+    <div class="list">
+        <label class="item item-borderless item-input item-stacked-label">
+            <span class="input-label">Google Calendar URL</span>
+            <input type="text" name="pubCalId" ng-model="calendarData.pubCalId" required placeholder="Public calendar id required">
+            <p class="error" ng-show="myform.pubCalId.$invalid && myform.$submitted">Please provide a valid Google Calendar URL.</p>
+        </label>
+       <!--  <label class="item item-borderless item-input item-stacked-label">
+            <span class="input-label">Google Calendar URL</span>
+            <input type="text" name="pubCalId" ng-model="calendarData.pubCalId" required placeholder="Public calendar id required">
+            <p class="error" ng-show="myform.pubCalId.$invalid && myform.$submitted">Please provide a valid Google Calendar URL.</p>
+        </label>
+        <label class="item item-borderless item-input item-stacked-label">
+            <span class="input-label">Google Calendar URL</span>
+            <input type="text" name="pubCalId" ng-model="calendarData.pubCalId" required placeholder="Public calendar id required">
+            <p class="error" ng-show="myform.pubCalId.$invalid && myform.$submitted">Please provide a valid Google Calendar URL.</p>
+        </label> -->
+    </div>
+
+
+
+<div class="gap100"></div>
+<div class="loginBtnHldr text-center bottom20">
+    <button type="submit" class="button button-outline button-calm button-block">Continue</button>
+</div>
+</form>
+</ion-content>
+</ion-view>

@@ -1,0 +1,15 @@
+<ion-view view-title="Calendar">
+<ion-content class="padding">
+<div class="calendar-legend">
+	<a href="" ng-click="monthClickHandler()">Month</a> |
+	<a href="" ng-click="listClickHandler()">List</a>
+</div>
+<br>
+<div id="listView" ng-show="isListViewActivated"></div>
+<div id='gCalendar' ng-show="isCalendarViewActivated"></div>
+<div class="calendar-legend">
+    <div class="cal-home"><span ng-style="{'background-color':'{{homeColor}}'}"></span> Home</div>
+    <div class="cal-away"><span ng-style="{'background-color':'{{awayColor}}'}"></span> Away</div>
+</div>
+</ion-content>
+</ion-view>
