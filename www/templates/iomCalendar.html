@@ -1,9 +1,9 @@
 <ion-view view-title="Calendar">
 	<ion-content class="padding calendar-view">
 		<div class="calendar-legend calendar-views">
-			<div><a href="" ng-click="listClickHandler()">List</a></div>
+			<div><a href="" id="listClick" ng-click="listClickHandler()">List</a></div>
 			<div>|</div>
-			<div><a href="" ng-click="monthClickHandler()">Month</a></div>
+			<div><a href="" id="monthClick" class="active-view" ng-click="monthClickHandler()">Month</a></div>
 		</div>
 		<div id="listView" ng-show="isListViewActivated">
 		    <ion-list>

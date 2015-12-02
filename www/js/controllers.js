@@ -85,6 +85,9 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
                 element.css("background-color", CONSTANTS.awayGameEventColor);
             }
         },
+        eventAfterAllRender: function() {
+            hideMore();
+        },
         dayRender: function(date, cell) {
             cell.css("background-color", CONSTANTS.defaultCellColor);
         },
@@ -121,9 +124,10 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             // console.log(event);
             $scope.selectedEvents = [event];
             showEventPopup();
+            hideMore();
         },
         eventLimitClick: function(cellInfo, jsEvent) {
-            $scope.selectedEvents = dataService.getCalendarListEvents(moment(cellInfo.date).unix()*1000);
+            $scope.selectedEvents = dataService.getCalendarListEvents(moment(cellInfo.date).unix() * 1000);
             showEventPopup();
             console.log(cellInfo.date);
         },
@@ -155,6 +159,12 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
                             }*/
     });
 
+    function hideMore() {
+        if ($(".fc-more").html()) {
+            $(".fc-more").html($(".fc-more").html().split(" ")[0])
+        }
+    }
+
     function showEventPopup() {
         $ionicModal.fromTemplateUrl('templates/calendarEventDetailsPopUp.html', function(_modal) {
             $scope.calenderEventDetailsPopUpModal = _modal;
@@ -174,11 +184,19 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     $scope.monthClickHandler = function() {
         $scope.isCalendarViewActivated = true;
         $scope.isListViewActivated = false;
+        if($("#listClick").hasClass("active-view")){
+            $("#listClick").removeClass("active-view")
+        }
+        $("#monthClick").addClass("active-view");
     }
     $scope.listClickHandler = function() {
         $scope.isListViewActivated = true;
         $scope.isCalendarViewActivated = false;
         $scope.listViewData = dataService.getCalendarListEvents("all");
+        if($("#monthClick").hasClass("active-view")){
+            $("#monthClick").removeClass("active-view")
+        }
+        $("#listClick").addClass("active-view");
     }
 }]).controller('CalendarEventDetailsPopUpController', ['$scope', '$state', 'CONSTANTS', function($scope, $state, CONSTANTS) {
     $scope.events = $scope.selectedEvents;
@@ -250,7 +268,6 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     };
     dataServices.getCalendarListEvents = function(pTimestamp) {
         eventsLists = [];
-        
         if (pTimestamp === "all") {
             serviceData.schedule.forEach(function(element, index, array) {
                 eventsLists.push({
@@ -272,10 +289,10 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
                     "description": "There is no other extra information available in the RSS feed. Do we really need this detail?" //TODO: JVI- Needs to update 
                 })
             });
-        }else{
+        } else {
             serviceData.schedule.forEach(function(element, index, array) {
                 //moment(1449340200000).isSame((1449424800*1000), "day")
-                if((moment(pTimestamp).isSame(element.timestamp*1000, "day")) && (moment(pTimestamp).isSame(element.timestamp*1000, "month")) && (moment(pTimestamp).isSame(element.timestamp*1000, "year"))){
+                if ((moment(pTimestamp).isSame(element.timestamp * 1000, "day")) && (moment(pTimestamp).isSame(element.timestamp * 1000, "month")) && (moment(pTimestamp).isSame(element.timestamp * 1000, "year"))) {
                     eventsLists.push({
                         "day": element.day,
                         "time": element.time,
@@ -292,10 +309,9 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
                         "result": element.result,
                         "home_team_score": element.home_team_score,
                         "other_team_score": element.other_team_score,
-                        "description":"There is no other extra information available in the RSS feed. Do we really need this detail?" //TODO: JVI- Needs to update 
+                        "description": "There is no other extra information available in the RSS feed. Do we really need this detail?" //TODO: JVI- Needs to update 
                     })
                 }
-                
             });
         }
         return eventsLists;
