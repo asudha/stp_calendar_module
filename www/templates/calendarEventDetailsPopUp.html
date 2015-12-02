@@ -3,36 +3,46 @@
 	<a class="button icon-left ion-ios-arrow-thin-left button-clear button-dark" ng-click="calendarEventDetailsGoBack()"></a>
 	<h1 class="title">Event Details</h1>
 </ion-header-bar>
-<ion-content class="event-details-content">
-<div class="list">
-	<div class="list-block">
-		<div class="logos_block"><img src="images/NJD.png" class="logos" /></div>
-		<div class="logos_block"><img src="images/COL.png" class="logos" /></div>
-		<div class="game-location">@</div>
-		<div class="game-details">
-			<p>Prudential Center - Dec 06th - 7:00 PM EST</p>
-		</div>
+	<ion-content class="event-details-content">
+	<ion-list>
+		<ion-item ng-repeat="item in events track by $index">
+			<div class="logos_block"><img ng-src="{{item.home_player_overlay_logo}}" class="logos" /></div>
+			<div class="logos_block"><img ng-src="{{item.away_player_overlay_logo}}" class="logos" /></div>
+			<div class="game-location">{{item.game_type}}</div>
+			<div class="game-details">
+			    <p>{{item.stadium}} - {{item.day}} - {{item.time}}</p>
+			</div>
+		</ion-item>
+	</ion-list>
+	<!-- <div class="list">
+	    <div class="list-block">
+	        <div class="logos_block"><img src="images/NJD.png" class="logos" /></div>
+	        <div class="logos_block"><img src="images/COL.png" class="logos" /></div>
+	        <div class="game-location">@</div>
+	        <div class="game-details">
+	            <p>Prudential Center - Dec 06th - 7:00 PM EST</p>
+	        </div>
+	    </div>
+	</div> -->
+	<!-- <div class="list">
+	    <div class="list-block">
+	        <div class="logos_block"><img src="images/NJD.png" class="logos" /></div>
+	        <div class="logos_block"><img src="images/COL.png" class="logos" /></div>
+	        <div class="game-location">@</div>
+	        <div class="game-details">
+	            <p>Prudential Center - Dec 06th - 7:00 PM EST</p>
+	        </div>
+	    </div>
 	</div>
-</div>
-<div class="list">
-	<div class="list-block">
-		<div class="logos_block"><img src="images/NJD.png" class="logos" /></div>
-		<div class="logos_block"><img src="images/COL.png" class="logos" /></div>
-		<div class="game-location">@</div>
-		<div class="game-details">
-			<p>Prudential Center - Dec 06th - 7:00 PM EST</p>
-		</div>
-	</div>
-</div>
-<div class="list">
-	<div class="list-block">
-		<div class="logos_block"><img src="images/NJD.png" class="logos" /></div>
-		<div class="logos_block"><img src="images/COL.png" class="logos" /></div>
-		<div class="game-location">@</div>
-		<div class="game-details">
-			<p>Prudential Center - Dec 06th - 7:00 PM EST</p>
-		</div>
-	</div>
-</div>
-</ion-content>
+	<div class="list">
+	    <div class="list-block">
+	        <div class="logos_block"><img src="images/NJD.png" class="logos" /></div>
+	        <div class="logos_block"><img src="images/COL.png" class="logos" /></div>
+	        <div class="game-location">@</div>
+	        <div class="game-details">
+	            <p>Prudential Center - Dec 06th - 7:00 PM EST</p>
+	        </div>
+	    </div>
+	</div> -->
+	</ion-content>
 </ion-modal-view>
