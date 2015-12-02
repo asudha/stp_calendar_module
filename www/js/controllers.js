@@ -102,7 +102,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             alert('Date: ' + date.format());
         },
         googleCalendarApiKey: (CONSTANTS.isGoogleCalendarData) ? (CONSTANTS.gcApiKey) : "",
-        events: (CONSTANTS.isGoogleCalendarData) ? (CONSTANTS.pubCalId+"@group.calendar.google.com") : function(start, end, timezone, callback) {
+        events: (CONSTANTS.isGoogleCalendarData) ? (CONSTANTS.pubCalId + "@group.calendar.google.com") : function(start, end, timezone, callback) {
             //dataService.getCalendarData("https://gcvr.io-media.com/fc/data.json", callback, "");
             //dataService.getCalendarData("http://stp-demo-02.io-research.com/api/schedule", callback, "");
             dataService.getCalendarData("lib/data.json", callback, "");
@@ -119,12 +119,14 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             //window.open(event.url, 'gcalevent', 'width=700,height=600');
             //return false;
             // console.log(event);
-            $scope.selectedEvent = event;
+            $scope.selectedEvents = [event];
             showEventPopup();
         },
-        /*joseClick:function(event){
-            console.log("jose Clicked "+event);
-        },*/
+        eventLimitClick: function(cellInfo, jsEvent) {
+            $scope.selectedEvents = dataService.getCalendarListEvents(moment(cellInfo.date).unix()*1000);
+            showEventPopup();
+            console.log(cellInfo.date);
+        },
         select: function(start, end) {
             //var title = prompt('Event Title:');
             var eventData;
@@ -175,12 +177,11 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     }
     $scope.listClickHandler = function() {
         $scope.isListViewActivated = true;
-        $scope.isCalendarViewActivated = false;        
-        $scope.listViewData = dataService.getCalendarListEvents("Oct", "Nov");
+        $scope.isCalendarViewActivated = false;
+        $scope.listViewData = dataService.getCalendarListEvents("all");
     }
 }]).controller('CalendarEventDetailsPopUpController', ['$scope', '$state', 'CONSTANTS', function($scope, $state, CONSTANTS) {
-    $scope.eventTitle = $scope.selectedEvent.title;
-    $scope.imageUrl = $scope.selectedEvent.imageUrl;
+    $scope.events = $scope.selectedEvents;
     $scope.calendarEventDetailsGoBack = function() {
         $scope.closeCalendarEventDetailsPopUp();
     }
@@ -229,6 +230,11 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
                         start: moment(Number(element.timestamp) * 1000), // will be parsed
                         //imageUrl: (element.away_player_id ? ((serviceData.logo_url+ teamsObj[element.away_player_id].mobile_logo) ? element.other_team.calendar_logo : null) : null),
                         imageUrl: serviceData.logo_url + teamsObj[element.away_player_id].mobile_logo,
+                        home_player_overlay_logo: serviceData.logo_url + teamsObj[element.home_player_id].overlay_logo,
+                        away_player_overlay_logo: serviceData.logo_url + teamsObj[element.away_player_id].overlay_logo,
+                        day: element.day,
+                        time: element.time,
+                        game_type: element.game_type,
                         isHomeGame: element.home_game
                     });
                 })
@@ -242,28 +248,55 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             }
         });
     };
-    dataServices.getCalendarListEvents = function(pStartDate, pEndDate) {
+    dataServices.getCalendarListEvents = function(pTimestamp) {
         eventsLists = [];
-        serviceData.schedule.forEach(function(element, index, array) {
-            eventsLists.push({
-                "day": element.day,
-                "time": element.time,
-                "timestamp": element.timestamp,
-                "game_type": element.game_type,
-                "home_game": element.home_game,
-                "home_player_id": element.home_player_id,
-                "away_player_id": element.away_player_id,
-                "home_player_name": teamsObj[element.home_player_id].team_name,
-                "away_player_name": teamsObj[element.away_player_id].team_name,
-                "home_player_overlay_logo": serviceData.logo_url + teamsObj[element.home_player_id].overlay_logo,
-                "away_player_overlay_logo": serviceData.logo_url + teamsObj[element.away_player_id].overlay_logo,
-                "stadium": element.stadium,
-                "result": element.result,
-                "home_team_score": element.home_team_score,
-                "other_team_score": element.other_team_score,
-                "description":"There is no other extra information available in RSS feed" //TODO: JVI- Needs to update 
-            })
-        });
+        if (pTimestamp === "all") {
+            serviceData.schedule.forEach(function(element, index, array) {
+                eventsLists.push({
+                    "day": element.day,
+                    "time": element.time,
+                    "timestamp": element.timestamp,
+                    "game_type": element.game_type,
+                    "isHomeGame": element.home_game,
+                    "home_player_id": element.home_player_id,
+                    "away_player_id": element.away_player_id,
+                    "home_player_name": teamsObj[element.home_player_id].team_name,
+                    "away_player_name": teamsObj[element.away_player_id].team_name,
+                    "home_player_overlay_logo": serviceData.logo_url + teamsObj[element.home_player_id].overlay_logo,
+                    "away_player_overlay_logo": serviceData.logo_url + teamsObj[element.away_player_id].overlay_logo,
+                    "title": element.stadium,
+                    "result": element.result,
+                    "home_team_score": element.home_team_score,
+                    "other_team_score": element.other_team_score,
+                    "description": "There is no other extra information available in RSS feed" //TODO: JVI- Needs to update 
+                })
+            });
+        }else{
+            serviceData.schedule.forEach(function(element, index, array) {
+                //moment(1449340200000).isSame((1449424800*1000), "day")
+                if((moment(pTimestamp).isSame(element.timestamp*1000, "day")) && (moment(pTimestamp).isSame(element.timestamp*1000, "month")) && (moment(pTimestamp).isSame(element.timestamp*1000, "year"))){
+                    eventsLists.push({
+                        "day": element.day,
+                        "time": element.time,
+                        "timestamp": element.timestamp,
+                        "game_type": element.game_type,
+                        "isHomeGame": element.home_game,
+                        "home_player_id": element.home_player_id,
+                        "away_player_id": element.away_player_id,
+                        "home_player_name": teamsObj[element.home_player_id].team_name,
+                        "away_player_name": teamsObj[element.away_player_id].team_name,
+                        "home_player_overlay_logo": serviceData.logo_url + teamsObj[element.home_player_id].overlay_logo,
+                        "away_player_overlay_logo": serviceData.logo_url + teamsObj[element.away_player_id].overlay_logo,
+                        "title": element.stadium,
+                        "result": element.result,
+                        "home_team_score": element.home_team_score,
+                        "other_team_score": element.other_team_score,
+                        "description": "There is no other extra information available in RSS feed" //TODO: JVI- Needs to update 
+                    })
+                }
+                
+            });
+        }
         return eventsLists;
     }
     return dataServices;
