@@ -5,13 +5,14 @@
 </ion-header-bar>
 	<ion-content class="event-details-content">
 	<ion-list>
-		<ion-item ng-repeat="item in events track by $index">
+		<ion-item ng-repeat="item in events track by $index" class="list-block">
 			<div class="logos_block"><img ng-src="{{item.home_player_overlay_logo}}" class="logos" /></div>
 			<div class="logos_block"><img ng-src="{{item.away_player_overlay_logo}}" class="logos" /></div>
 			<div class="game-location">{{item.game_type}}</div>
 			<div class="game-details">
 			    <p>{{item.stadium}} - {{item.day}} - {{item.time}}</p>
 			</div>
+			<div class="separator">&nbsp;</div>
 		</ion-item>
 	</ion-list>
 	<!-- <div class="list">
