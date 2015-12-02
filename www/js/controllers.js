@@ -59,7 +59,9 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             prev: 'left-arrow',
             next: 'right-arrow'
         },
-        eventLimit: (CONSTANTS.isFlexibleCellSize) ? false : true,
+        eventLimit: (CONSTANTS.isFlexibleCellSize) ? 0 : 1,
+        //eventLimit: 1,
+        selectable: true,
         selectable: true,
         selectHelper: true,
         timezone: 'local',
@@ -100,7 +102,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             alert('Date: ' + date.format());
         },
         googleCalendarApiKey: (CONSTANTS.isGoogleCalendarData) ? (CONSTANTS.gcApiKey) : "",
-        events: (CONSTANTS.isGoogleCalendarData) ? (CONSTANTS.pubCalId) : function(start, end, timezone, callback) {
+        events: (CONSTANTS.isGoogleCalendarData) ? (CONSTANTS.pubCalId+"@group.calendar.google.com") : function(start, end, timezone, callback) {
             //dataService.getCalendarData("https://gcvr.io-media.com/fc/data.json", callback, "");
             //dataService.getCalendarData("http://stp-demo-02.io-research.com/api/schedule", callback, "");
             dataService.getCalendarData("lib/data.json", callback, "");
@@ -191,7 +193,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     awayGameEventColor: '#11c1f3',
     isFlexibleCellSize: false,
     isGoogleCalendarData: false,
-    pubCalId: 'b0rqjogof4sibclm8cul5itsjs@group.calendar.google.com',
+    pubCalId: 'b0rqjogof4sibclm8cul5itsjs',
     gcApiKey: 'AIzaSyC8gxu5eEtOBjfkwcNy2QRvA0wVOpFDNd0'
 }).factory("dataService", ['$http', function($http) {
     var dataServices = {};
@@ -253,12 +255,13 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
                 "away_player_id": element.away_player_id,
                 "home_player_name": teamsObj[element.home_player_id].team_name,
                 "away_player_name": teamsObj[element.away_player_id].team_name,
-                "home_player_overlay_logo": teamsObj[element.home_player_id].overlay_logo,
-                "away_player_overlay_logo": teamsObj[element.away_player_id].overlay_logo,
+                "home_player_overlay_logo": serviceData.logo_url + teamsObj[element.home_player_id].overlay_logo,
+                "away_player_overlay_logo": serviceData.logo_url + teamsObj[element.away_player_id].overlay_logo,
                 "stadium": element.stadium,
                 "result": element.result,
                 "home_team_score": element.home_team_score,
-                "other_team_score": element.other_team_score
+                "other_team_score": element.other_team_score,
+                "description":"There is no other extra information available in RSS feed" //TODO: JVI- Needs to update 
             })
         });
         return eventsLists;

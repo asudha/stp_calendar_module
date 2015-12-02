@@ -8,7 +8,22 @@
 		<div id="listView" ng-show="isListViewActivated">
 		    <ion-list>
 			    <ion-item ng-repeat="item in listViewData track by $index">
-			    	<p>{{item.stadium}}</p>
+			    	<p>Stadium Name : {{item.stadium}}</p>
+			    	<p>Day : {{item.day}}</p>
+			    	<p>Time : {{item.time}}</p>
+			    	<p>Game Type : {{item.game_type}}</p>
+			    	<p>Home Player Name : {{item.home_player_name}}</p>
+			    	<p>Away Player Name : {{item.away_player_name}}</p>
+			    	<p>Home Player Overlay Logo : {{item.home_player_overlay_logo}}</p>
+			    	<p>Away Player Overlay Logo : {{item.away_player_overlay_logo}}</p>
+			    	<p>Result : {{item.result}}</p>
+			    	<p>Home Team Score : {{item.home_team_score}}</p>
+			    	<p>Away Team Score : {{item.other_team_score}}</p>
+			    	<p>Is Home Game : {{item.home_game}}</p>
+			    	<p>Game Description : {{item.description}}</p>
+			    	<!-- <p> : {{item.home_player_id}}</p>
+			    	<p> : {{item.away_player_id}}</p>
+			    	<p> : {{item.timestamp}}</p> -->
 			    </ion-item>
 		    </ion-list>
 		</div>
