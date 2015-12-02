@@ -261,7 +261,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
                 "result": element.result,
                 "home_team_score": element.home_team_score,
                 "other_team_score": element.other_team_score,
-                "description":"There is no other extra information available in the RSS feed. Do we really need this detail? We might have to look in the Ticket Master API. the details do not exist in the TM API." //TODO: JVI- Needs to update 
+                "description":"There is no other extra information available in the RSS feed. Do we really need this detail?" //TODO: JVI- Needs to update 
             })
         });
         return eventsLists;
