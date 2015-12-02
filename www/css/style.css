@@ -97,7 +97,8 @@ body, h1, h2, h3, h4, h5, h6{font-family:Oswald;}
 .scroll .row .item{font-family:Arial, Helvetica, sans-serif;text-indent:10px;font-size:1em;}.scroll .row{padding:0px;margin:0px 0px 5px 0px;}.event-details h1, .event-details .button.button-dark.button-clear{color:#ffffff;}
 .bar .button.button-clear.icon-left:before{font-size:20px;}.scroll-content .scroll .list{padding:5px;}
 .list-block{float:left;width:100%;position:relative;}
-.list-block div.logos_block{float:left;width:50%;}
+.list-block div.logos_block{float:left;width:50%;position:relative;}
+.list-block div.logos_block div{position:absolute;bottom:0px;width:100%;text-align:center;}
 .list-block img.logos{width:100%;float:left;}
 .event-details-content{padding:2px;}
 .event-details-content.scroll-content .scroll .list{float:left;width:100%;padding:2px;border:1px solid rgba(0,0,0,0.5);position:relative;margin-bottom:5px;}
