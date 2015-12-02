@@ -7,8 +7,8 @@
 		</div>
 		<div id="listView" ng-show="isListViewActivated">
 		    <ion-list>
-			    <ion-item ng-repeat="item in listViewData track by $index">
-			    	<p>Stadium Name : {{item.stadium}}</p>
+			    <ion-item ng-repeat="item in listViewData track by $index" class="list-view">
+			    	<!-- <p>Stadium Name : {{item.stadium}}</p>
 			    	<p>Day : {{item.day}}</p>
 			    	<p>Time : {{item.time}}</p>
 			    	<p>Game Type : {{item.game_type}}</p>
@@ -20,12 +20,39 @@
 			    	<p>Home Team Score : {{item.home_team_score}}</p>
 			    	<p>Away Team Score : {{item.other_team_score}}</p>
 			    	<p>Is Home Game : {{item.home_game}}</p>
-			    	<p>Game Description : {{item.description}}</p>
+			    	<p>Game Description : {{item.description}}</p> -->
 			    	<!-- <p> : {{item.home_player_id}}</p>
 			    	<p> : {{item.away_player_id}}</p>
 			    	<p> : {{item.timestamp}}</p> -->
+			    	<div class="events-list">
+						<div class="list-block">
+							<div class="logos_block">
+								<img src="{{item.home_player_overlay_logo}}" class="logos" />
+								<div>{{item.home_player_name}}</div>
+							</div>
+							<div class="logos_block">
+								<img src="{{item.away_player_overlay_logo}}" class="logos" />
+								<div>{{item.away_player_name}}</div>
+							</div>
+							<div class="game-location">{{item.game_type}}</div>
+							<!-- <div class="game-details">
+								<p>Prudential Center - Dec 06th - 7:00 PM EST</p>
+							</div> -->
+						</div>
+						<div class="list-block">
+							<div class="tabular-structure"><p><span>Venue:</span><span>{{item.stadium}}</span></p></div>
+							<div class="tabular-structure">
+								<div class="tabular-half"><p><span>Date:</span><span>{{item.date}}</span></p></div>
+								<div class="tabular-half align-right"><p><span>Time:</span><span>{{item.time}}</span></p></div>
+							</div>
+							<div class="tabular-structure">
+								<p><span>Event Details:</span><span>{{item.description}}</span></p>
+							</div>
+						</div>
+					</div>
 			    </ion-item>
 		    </ion-list>
+		    
 		</div>
 		</div>
 		<div class="" ng-show="isCalendarViewActivated">
