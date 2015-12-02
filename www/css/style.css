@@ -52,7 +52,7 @@ label.item-input{padding-left:0px;}
 .scroll .row{padding-bottom:10px;}
 .scroll .row .item{padding:0px;line-height:34px;}
 .scroll .row .item input{background:none;width:100%;}
-.scroll-content .scroll .list{padding:0px 5px;}
+.scroll-content .scroll .events-list{padding:0px 5px;}
 #gCalendar .fc-view-container .fc-head th{background:rgba(178,178,178,0.5);border-right:1px solid rgba(178,178,178,0.5);padding:3px 0px;}
 #gCalendar .fc-view-container .fc-head th:last-child{border-right:0px;}
 /*#gCalendar .fc-view-container .fc-body td.fc-day{background:rgba(178,178,178,0.05)!important;}
@@ -97,9 +97,19 @@ body, h1, h2, h3, h4, h5, h6{font-family:Oswald;}
 .scroll .row .item{font-family:Arial, Helvetica, sans-serif;text-indent:10px;font-size:1em;}.scroll .row{padding:0px;margin:0px 0px 5px 0px;}.event-details h1, .event-details .button.button-dark.button-clear{color:#ffffff;}
 .bar .button.button-clear.icon-left:before{font-size:20px;}.scroll-content .scroll .list{padding:5px;}
 .list-block{float:left;width:100%;position:relative;}
-.list-block div.logos_block{float:left;width:50%;}
+.list-block div.logos_block{float:left;width:50%;position:relative;}
+.list-block div.logos_block div{position:absolute;bottom:0px;width:100%;text-align:center;}
 .list-block img.logos{width:100%;float:left;}
 .event-details-content{padding:2px;}
 .event-details-content.scroll-content .scroll .list{float:left;width:100%;padding:2px;border:1px solid rgba(0,0,0,0.5);position:relative;margin-bottom:5px;}
 .game-location{position:absolute;top:50%;left:50%;width:30px;line-height:30px;margin:-15px 0px 0px -15px;z-index:999;color:#ffffff;text-align:center;font-size:1.75em;}
 .game-details{position:absolute;bottom:0px;color:#ffffff;width:100%;text-align:center;font-size:1.25em;}.game-details p{margin:0px;padding:0px;font-size:0.7em;line-height:35px;}
+.bar .button.button-clear.icon-left:before{font-size:41px;}.scroll-content .scroll .events-list{float:left;width:100%;padding:0px;}
+.list-view .scroll-content .scroll .list .item{padding:0px;}.list-view{padding:0px;float:left;width:100%;margin-bottom:5px;border-color:rgba(0,0,0,0.3);}#listView .list{float:left;width:100%;padding:5px;}
+.tabular-structure{float:left;width:100%;padding:5px 10px;font-family:Arial, Helvetica, sans-serif;}
+.tabular-structure p{color:#000000;font-size:0.8em;white-space:pre;}
+.tabular-structure p span{padding:0px 0px 0px 0px;line-height: 25px;}
+.tabular-structure p span{float:left;width:30%;}.tabular-structure p span:last-child{float:right;width:65%;}
+.tabular-structure:nth-child(even){background:rgba(0,0,0,0.125);}
+.tabular-half{width:50%;float:left;}
+.align-right{text-align:right;}
