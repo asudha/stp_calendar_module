@@ -104,7 +104,7 @@ body, h1, h2, h3, h4, h5, h6{font-family:Oswald;}
 .list-block img.logos{width:100%;float:left;}
 .event-details-content{padding:2px;}
 .event-details-content.scroll-content .scroll .list{float:left;width:100%;padding:2px;position:relative;margin-bottom:5px;}
-.game-location{position:absolute;top:50%;left:50%;width:30px;line-height:30px;margin:-15px 0px 0px -15px;z-index:999;color:#ffffff;text-align:center;font-size:1.75em;}
+.game-location{position:absolute;top:41%;left:50%;width:30px;line-height:30px;margin:-15px 0px 0px -15px;z-index:999;color:#ffffff;text-align:center;font-size:1.75em;}
 /*.game-details{position:absolute;bottom:0px;color:#ffffff;width:100%;text-align:center;font-size:1.25em;}.game-details p{margin:0px;padding:0px;font-size:0.7em;line-height:35px;}*/
 .game-details{float:left;width:100%;padding:10px 0px 5px 0px;}.game-details p{color:#000000;}
 .bar .button.button-clear.icon-left:before{font-size:41px;}.scroll-content .scroll .events-list{float:left;width:100%;padding:0px;position:relative;margin-bottom:30px;}
@@ -119,9 +119,17 @@ body, h1, h2, h3, h4, h5, h6{font-family:Oswald;}
 .events-list{border:1px solid rgba(0,0,0,0.5);}
 .event-details-content .list-block:last-child .separator{display:none;}
 
-a.fc-more{position:absolute;margin:0px;right:0px;width:25px;overflow:hidden;height:20px;font-size:13px;font-family:Arial;text-align:center;background:rgba(255,255,255,0.4);margin-top:10px;border-radius:4px 0px 0px 0px;}
+a.fc-more{position:absolute;margin:0px;right:0px;width:25px;overflow:hidden;height:20px;font-size:13px;font-family:Arial;text-align:center;background:rgba(255,255,255,0.7);margin-top:10px;border-radius:4px 0px 0px 0px;}
 
 .tabular-structure.title{text-align:center;font-size:;font-family: Oswald;text-transform:uppercase;}
 .tabular-structure.desc{text-align:center;}
 .tabular-half{width:50%;float:left;font-family: Oswald;}
 .align-right{text-align:right;}
+
+/* CSS Patch  */
+/*.bar .title.title-left{text-align:center;}
+.calendar-page .bar .title.title-left{text-align:left;}*/
+.game-details span{display:inline-block;}
+.game-details span.align-left{float:left;text-align:left;}
+.game-details span.align-right{float:right;text-align:right;}
+.bar .title.title-center{text-align:center;}

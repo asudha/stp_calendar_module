@@ -1,7 +1,14 @@
 <ion-modal-view  ng-controller="CalendarEventDetailsPopUpController">
-<ion-header-bar class="event-details">
+<!-- <ion-header-bar class="event-details">
 	<a class="button icon-left ion-ios-arrow-thin-left button-clear button-dark" ng-click="calendarEventDetailsGoBack()"></a>
 	<h1 class="title">Event Details</h1>
+</ion-header-bar> -->
+<ion-header-bar class="bar-stable bar bar-header disable-user-behavior" align-title="left">
+	<button ng-click="calendarEventDetailsGoBack()" class="button back-button buttons  button-clear header-item">
+		<i class="icon ion-android-arrow-back"></i> 
+        <span class="back-text"></span>
+    </button>
+    <div class="title title-center header-item" style="left: 36px;">Event Details</div>
 </ion-header-bar>
 	<ion-content class="event-details-content">
 	<ion-list>
@@ -10,7 +17,7 @@
 			<div class="logos_block"><img ng-src="{{item.away_player_overlay_logo}}" class="logos" /></div>
 			<div class="game-location">{{item.game_type}}</div>
 			<div class="game-details">
-			    <p>{{item.stadium}} - {{item.day}} - {{item.time}}</p>
+			    <p><span class="align-left">{{item.title}}</span><span class="align-right">{{item.day}}&nbsp;&nbsp;&nbsp;{{item.time}}</span></p>
 			</div>
 			<div class="separator">&nbsp;</div>
 		</ion-item>

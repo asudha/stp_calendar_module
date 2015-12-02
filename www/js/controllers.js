@@ -86,6 +86,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             }
         },
         eventAfterAllRender: function() {
+            $(".fc td, .fc th").css('border-color',CONSTANTS.gridBorderColor)
             hideMore();
         },
         dayRender: function(date, cell) {
