@@ -166,21 +166,15 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     }
     $scope.isCalendarViewActivated = true;
     $scope.isListViewActivated = false;
+    $scope.listViewData = null;
     $scope.monthClickHandler = function() {
         $scope.isCalendarViewActivated = true;
         $scope.isListViewActivated = false;
     }
     $scope.listClickHandler = function() {
         $scope.isListViewActivated = true;
-        $scope.isCalendarViewActivated = false;
-        var data = dataService.getCalendarListEvents("Oct","Nov", onSuccessGetCalendarListEvents, onErrorGetCalendarListEvents)
-    }
-
-    function onSuccessGetCalendarListEvents(){
-
-    };
-    function onErrorGetCalendarListEvents(){
-
+        $scope.isCalendarViewActivated = false;        
+        $scope.listViewData = dataService.getCalendarListEvents("Oct", "Nov");
     }
 }]).controller('CalendarEventDetailsPopUpController', ['$scope', '$state', 'CONSTANTS', function($scope, $state, CONSTANTS) {
     $scope.eventTitle = $scope.selectedEvent.title;
@@ -202,13 +196,13 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
 }).factory("dataService", ['$http', function($http) {
     var dataServices = {};
     var serviceData = null;
-    var calendarEvents = null;
-    var calendarJsonData = null;
     var teamsObj = null;
-    function createTeamById(){
-        if(!teamsObj){
+    var eventsLists = null
+
+    function createTeamById() {
+        if (!teamsObj) {
             teamsObj = {};
-            serviceData.teams.forEach(function(element, index, array){
+            serviceData.teams.forEach(function(element, index, array) {
                 teamsObj[element.team_id] = array[index];
             })
         }
@@ -232,7 +226,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
                         title: element.stadium,
                         start: moment(Number(element.timestamp) * 1000), // will be parsed
                         //imageUrl: (element.away_player_id ? ((serviceData.logo_url+ teamsObj[element.away_player_id].mobile_logo) ? element.other_team.calendar_logo : null) : null),
-                        imageUrl:serviceData.logo_url+ teamsObj[element.away_player_id].mobile_logo,
+                        imageUrl: serviceData.logo_url + teamsObj[element.away_player_id].mobile_logo,
                         isHomeGame: element.home_game
                     });
                 })
@@ -246,9 +240,28 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             }
         });
     };
-    dataServices.getCalendarListEvents = function(pStartDate, pEndDate, onSuccessCallback, onErrorCallback){
-        console.log(calendarJsonData);
-
+    dataServices.getCalendarListEvents = function(pStartDate, pEndDate) {
+        eventsLists = [];
+        serviceData.schedule.forEach(function(element, index, array) {
+            eventsLists.push({
+                "day": element.day,
+                "time": element.time,
+                "timestamp": element.timestamp,
+                "game_type": element.game_type,
+                "home_game": element.home_game,
+                "home_player_id": element.home_player_id,
+                "away_player_id": element.away_player_id,
+                "home_player_name": teamsObj[element.home_player_id].team_name,
+                "away_player_name": teamsObj[element.away_player_id].team_name,
+                "home_player_overlay_logo": teamsObj[element.home_player_id].overlay_logo,
+                "away_player_overlay_logo": teamsObj[element.away_player_id].overlay_logo,
+                "stadium": element.stadium,
+                "result": element.result,
+                "home_team_score": element.home_team_score,
+                "other_team_score": element.other_team_score
+            })
+        });
+        return eventsLists;
     }
     return dataServices;
 }]);
