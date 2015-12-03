@@ -158,29 +158,6 @@ a.fc-more{position:absolute;margin:0px;right:0px;width:25px;overflow:hidden;heig
 .login-page .toggle.toggle-calm{margin-top:5px;}
 .scroll .row .item.select-label{line-height:53px;}
 
-
-
-
-
-
-
-/*background-image: url(https://d1w358dfdqgxb2.cloudfront.net/stp/team-logos/NFL/calendar/ATL.png);
-    height: 32px;
-    top: -22px;
-    background-position-x: right;
-    right: auto;*/
-
-
-/*        background-image: url(https://d1w358dfdqgxb2.cloudfront.net/stp/team-logos/NFL/calendar/NO.png);
-    height: 34px;
-    top: 1px;
-    background-position-x: right;
-    right: auto;*/
-
- /*   background-image: url(https://d1w358dfdqgxb2.cloudfront.net/stp/team-logos/NFL/calendar/IND.png);
-    height: 30px;
-    top: 3px;
-    background-position-x: right;
-    right: auto;
-    width: 37px;
-    left: -9px;*/
+.scroll-content .scroll .list.rssFeed{ padding: 0; margin: 0 -1px 5px;}
+.scroll-content .scroll .list.rssFeed .item-radio .item-content{ padding: 0; font-weight: normal;font-family: Arial, Helvetica, sans-serif;text-indent: 10px;font-size:15px; line-height: 34px;}
+.scroll-content .scroll .list.rssFeed .item-radio .radio-icon{ top:-14px;}
