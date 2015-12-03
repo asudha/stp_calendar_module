@@ -88,6 +88,9 @@ body, h1, h2, h3, h4, h5, h6{font-family:Oswald;}
 #gCalendar .fc-toolbar button{background:none;border:0px;box-shadow:none;}
 .fc-row .fc-content-skeleton tbody td, .fc-row .fc-helper-skeleton tbody td{position:relative;}
 .calanderThumbImage{top:-8px;width:100%;right:0px;margin:0px;}
+.calanderThumbImage.one{height: 32px;top: -22px;background-position-x: right;right: auto;}
+.calanderThumbImage.two{height: 34px;top: 1px;background-position-x: right;right: auto;}
+.calanderThumbImage.three{height: 30px;top: 3px;background-position-x: right;right: auto;width: 37px;left: -9px;}
 .calendar-view{padding:0px;}
 .calendar-view .calendar-views{padding:10px;background:rgba(0,0,0,0.1);}
 .calendar-view .calendar-views div{float:right;width:auto;line-height:26px;height:initial;}
@@ -154,3 +157,30 @@ a.fc-more{position:absolute;margin:0px;right:0px;width:25px;overflow:hidden;heig
 .toggle .handle{left:17px;}
 .login-page .toggle.toggle-calm{margin-top:5px;}
 .scroll .row .item.select-label{line-height:53px;}
+
+
+
+
+
+
+
+/*background-image: url(https://d1w358dfdqgxb2.cloudfront.net/stp/team-logos/NFL/calendar/ATL.png);
+    height: 32px;
+    top: -22px;
+    background-position-x: right;
+    right: auto;*/
+
+
+/*        background-image: url(https://d1w358dfdqgxb2.cloudfront.net/stp/team-logos/NFL/calendar/NO.png);
+    height: 34px;
+    top: 1px;
+    background-position-x: right;
+    right: auto;*/
+
+ /*   background-image: url(https://d1w358dfdqgxb2.cloudfront.net/stp/team-logos/NFL/calendar/IND.png);
+    height: 30px;
+    top: 3px;
+    background-position-x: right;
+    right: auto;
+    width: 37px;
+    left: -9px;*/
