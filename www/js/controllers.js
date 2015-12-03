@@ -1,6 +1,16 @@
 angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$state', 'CONSTANTS', function($scope, $state, CONSTANTS) {
     $scope.calendarData = {}
-    $scope.calendarData.defaultCellColor = CONSTANTS.defaultCellColor;
+    $scope.calendarData.monthFont = CONSTANTS.monthFont;
+    $scope.calendarData.monthFontColor = CONSTANTS.monthFontColor;
+    $scope.calendarData.monthFontSize = CONSTANTS.monthFontSize;
+    $scope.calendarData.dayBackgroundColor = CONSTANTS.dayBackgroundColor;
+    $scope.calendarData.dayFont = CONSTANTS.dayFont;
+    $scope.calendarData.dayFontColor = CONSTANTS.dayFontColor;
+    $scope.calendarData.dayFontSize = CONSTANTS.dayFontSize;
+    $scope.calendarData.dateBackgroundColor = CONSTANTS.dateBackgroundColor;
+    $scope.calendarData.dateFont = CONSTANTS.dateFont;
+    $scope.calendarData.dateFontColor = CONSTANTS.dateFontColor;
+    $scope.calendarData.dateFontSize = CONSTANTS.dateFontSize;
     $scope.calendarData.gridBorderColor = CONSTANTS.gridBorderColor;
     $scope.calendarData.homeGameCellColor = CONSTANTS.homeGameCellColor;
     $scope.calendarData.homeGameEventColor = CONSTANTS.homeGameEventColor;
@@ -9,30 +19,46 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     $scope.calendarData.isFlexibleCellSize = CONSTANTS.isFlexibleCellSize;
     $scope.calendarData.isGoogleCalendarData = CONSTANTS.isGoogleCalendarData;
     $scope.calendarData.pubCalId = CONSTANTS.pubCalId;
-    $scope.submitHandler = function(form) {
-        if (form.$valid) {
-            if (window.cordova && cordova.plugins && cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.close();
-            }
-            CONSTANTS.defaultCellColor = $scope.calendarData.defaultCellColor;
-            CONSTANTS.gridBorderColor = $scope.calendarData.gridBorderColor;
-            CONSTANTS.homeGameCellColor = $scope.calendarData.homeGameCellColor;
-            CONSTANTS.homeGameEventColor = $scope.calendarData.homeGameEventColor;
-            CONSTANTS.awayGameCellColor = $scope.calendarData.awayGameCellColor;
-            CONSTANTS.awayGameEventColor = $scope.calendarData.awayGameEventColor;
-            CONSTANTS.isFlexibleCellSize = $scope.calendarData.isFlexibleCellSize;
-            CONSTANTS.isGoogleCalendarData = $scope.calendarData.isGoogleCalendarData;
-            CONSTANTS.pubCalId = $scope.calendarData.pubCalId;
-            $state.go('iomCalendar')
+    $scope.fontsNames = CONSTANTS.fontsNames;
+    $scope.fontsSizes = CONSTANTS.fontsSizes;
+    $scope.submitHandler = function() {
+        if (window.cordova && cordova.plugins && cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.close();
         }
+        CONSTANTS.monthFont = $scope.calendarData.monthFont;
+        CONSTANTS.monthFontColor = $scope.calendarData.monthFontColor;
+        CONSTANTS.monthFontSize = $scope.calendarData.monthFontSize;
+        CONSTANTS.dayBackgroundColor = $scope.calendarData.dayBackgroundColor;
+        CONSTANTS.dayFont = $scope.calendarData.dayFont;
+        CONSTANTS.dayFontColor = $scope.calendarData.dayFontColor;
+        CONSTANTS.dayFontSize = $scope.calendarData.dayFontSize;
+        CONSTANTS.dateBackgroundColor = $scope.calendarData.dateBackgroundColor;
+        CONSTANTS.dateFont = $scope.calendarData.dateFont;
+        CONSTANTS.dateFontColor = $scope.calendarData.dateFontColor;
+        CONSTANTS.dateFontSize = $scope.calendarData.dateFontSize;
+        CONSTANTS.gridBorderColor = $scope.calendarData.gridBorderColor;
+       
+        CONSTANTS.homeGameCellColor = $scope.calendarData.homeGameCellColor;
+        CONSTANTS.homeGameEventColor = $scope.calendarData.homeGameEventColor;
+        CONSTANTS.awayGameCellColor = $scope.calendarData.awayGameCellColor;
+        CONSTANTS.awayGameEventColor = $scope.calendarData.awayGameEventColor;
+        CONSTANTS.isFlexibleCellSize = $scope.calendarData.isFlexibleCellSize;
+        CONSTANTS.isGoogleCalendarData = $scope.calendarData.isGoogleCalendarData;
+        CONSTANTS.pubCalId = $scope.calendarData.pubCalId;
+
+        $state.go('iomCalendar');
     };
+    $scope.$watch('calendarData.monthFontSize', function(newValue, oldValue) {
+      if(newValue != oldValue){
+        $("#gridBackgroundColor").css("background-color","#"+newValue);
+      } 
+    }, true);
 }]).controller('IomCalendarCtrl', ['$scope', 'CONSTANTS', 'dataService', '$ionicModal', "$state", function($scope, CONSTANTS, dataService, $ionicModal, $state) {
     var eventsArray = [];
     $scope.homeColor = CONSTANTS.homeGameCellColor;
     $scope.awayColor = CONSTANTS.awayGameCellColor;
     $scope.selectedEvent = null;
-
-    $scope.calendarGoBack = function(){
+    $scope.calendarGoBack = function() {
         $state.go("login");
     }
 
@@ -56,14 +82,14 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
         theme: false, // set to true if you want to use customizable themes and not the default theme of full calendar .. refer to : http://fullcalendar.io/docs/display/theme/
         views: {
             agenda: {
-                eventLimit: 1 // limits event to 3 on a specific day in the calendar UI --   refer to : http://fullcalendar.io/docs/display/eventLimit/
+                eventLimit: 2 // limits event to 3 on a specific day in the calendar UI --   refer to : http://fullcalendar.io/docs/display/eventLimit/
             }
         },
         themeButtonIcons: { // left, right arrow icons for the month selection
             prev: 'left-arrow',
             next: 'right-arrow'
         },
-        eventLimit: (CONSTANTS.isFlexibleCellSize) ? 0 : 1,
+        eventLimit: (CONSTANTS.isFlexibleCellSize) ? 0 : 2,
         //eventLimit: 1,
         selectable: true,
         selectable: true,
@@ -90,11 +116,30 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             }
         },
         eventAfterAllRender: function() {
-            $(".fc td, .fc th").css('border-color',CONSTANTS.gridBorderColor)
-            hideMore();
+            $(".fc td, .fc th").css('border-color', CONSTANTS.gridBorderColor)
+
+            $(".fc-toolbar .fc-center h2").css('font-family', CONSTANTS.monthFont);
+            $(".fc-toolbar .fc-center h2").css('color', CONSTANTS.monthFontColor);            
+            $(".fc-toolbar .fc-center h2").css('font-size', CONSTANTS.monthFontSize);
+
+            $(".fc-view-container .fc-head th").css('background-color', CONSTANTS.dayBackgroundColor);
+            $(".fc-view-container .fc-head th").css('font-family', CONSTANTS.dayFont);
+            $(".fc-view-container .fc-head th").css('color', CONSTANTS.dayFontColor);            
+            $(".fc-view-container .fc-head th").css('font-size', CONSTANTS.dayFontSize);
+
+           // $(".fc-ltr .fc-basic-view .fc-day-number").css('background-color', CONSTANTS.dateBackgroundColor);
+            $(".fc-ltr .fc-basic-view .fc-day-number").css('font-family', CONSTANTS.dateFont);
+            $(".fc-ltr .fc-basic-view .fc-day-number").css('color', CONSTANTS.dateFontColor);            
+            $(".fc-ltr .fc-basic-view .fc-day-number").css('font-size', CONSTANTS.dateFontSize);
+
+
+
+
+            
+
         },
         dayRender: function(date, cell) {
-            cell.css("background-color", CONSTANTS.defaultCellColor);
+            cell.css("background-color", CONSTANTS.dateBackgroundColor);
         },
         dayMouseover: function(date, jsEvent, view) {
             /* alert('Clicked on: ' + date.format());
@@ -129,7 +174,6 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             // console.log(event);
             $scope.selectedEvents = [event];
             showEventPopup();
-            hideMore();
         },
         eventLimitClick: function(cellInfo, jsEvent) {
             $scope.selectedEvents = dataService.getCalendarListEvents(moment(cellInfo.date).unix() * 1000);
@@ -189,7 +233,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     $scope.monthClickHandler = function() {
         $scope.isCalendarViewActivated = true;
         $scope.isListViewActivated = false;
-        if($("#listClick").hasClass("active-view")){
+        if ($("#listClick").hasClass("active-view")) {
             $("#listClick").removeClass("active-view")
         }
         $("#monthClick").addClass("active-view");
@@ -198,7 +242,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
         $scope.isListViewActivated = true;
         $scope.isCalendarViewActivated = false;
         $scope.listViewData = dataService.getCalendarListEvents("all");
-        if($("#monthClick").hasClass("active-view")){
+        if ($("#monthClick").hasClass("active-view")) {
             $("#monthClick").removeClass("active-view")
         }
         $("#listClick").addClass("active-view");
@@ -209,7 +253,17 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
         $scope.closeCalendarEventDetailsPopUp();
     }
 }]).constant('CONSTANTS', {
-    defaultCellColor: '#ffffff',
+    monthFont: "Arial Bold",
+    monthFontColor: "#aa11ff",
+    monthFontSize: 10,
+    dayBackgroundColor: "#123456",
+    dayFont: "Arial Bold",
+    dayFontColor: "#aa11ff",
+    dayFontSize: 10,
+    dateBackgroundColor: "#123456",
+    dateFont: "Arial Bold",
+    dateFontColor: "#aa11ff",
+    dateFontSize: 10,
     gridBorderColor: '#dddddd',
     homeGameCellColor: '#11c1f3',
     homeGameEventColor: '#d9704a',
@@ -218,7 +272,9 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     isFlexibleCellSize: false,
     isGoogleCalendarData: false,
     pubCalId: 'b0rqjogof4sibclm8cul5itsjs',
-    gcApiKey: 'AIzaSyC8gxu5eEtOBjfkwcNy2QRvA0wVOpFDNd0'
+    gcApiKey: 'AIzaSyC8gxu5eEtOBjfkwcNy2QRvA0wVOpFDNd0',
+    fontsNames: ["Arial", "TimesNewRoman", "Arial Bold", "Oswald"],
+    fontsSizes: [10, 11, 12, 14, 18, 20, 22],
 }).factory("dataService", ['$http', function($http) {
     var dataServices = {};
     var serviceData = null;

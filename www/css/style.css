@@ -139,3 +139,18 @@ a.fc-more{position:absolute;margin:0px;right:0px;width:25px;overflow:hidden;heig
 .game-details span.align-right{float:right;text-align:right;}
 .bar .title.title-center{text-align:center;}
 .align-center{text-align:center!important;}
+
+/*  Button on the Footer CSS */
+
+.bar.bar-balanced.bar-footer.button-footer{background:#ededed;padding:0px;background-image:transparent;height:50px;}
+.bar.bar-balanced.bar-footer .loginBtnHldr{padding:10px 9px 0px 9px;margin:0px;}
+.gap100.home-page{height:15px;}
+.login-page .scroll .row .item:nth-child(even){padding-right:5px;}
+.login-page .scroll .row .item input[type="text"], .login-page .scroll .row .item select{float:left;width:100%;margin-top:5px;padding:0px;}
+.login-page .scroll .row h6{width:100%;margin:0px;background:rgba(0,0,0,0.15);line-height:40px;text-indent:10px;font-size: 14px;
+    font-family: Oswald;}
+.login-page .scroll .row .item select{width:97%;}
+.login-page .scroll .row .item input div{padding:0px;}
+.toggle .handle{left:17px;}
+.login-page .toggle.toggle-calm{margin-top:5px;}
+.scroll .row .item.select-label{line-height:53px;}

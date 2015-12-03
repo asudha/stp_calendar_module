@@ -4,17 +4,100 @@
     <h2 class="title">STP Calendar</h2>
 </div> -->
 <ion-content class="padding has-subheader login-page">
-<form name="myform" class="form form-horizontal" novalidate="" ng-submit="submitHandler(myform)">
+<div class="form form-horizontal">
+    <h4> Calendar UI </h4>
+
+    <div class="row"><h6>Month text settings </h6></div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Background Color</div>
-        <div class="item item-borderless col"><input type="color" ng-model="calendarData.defaultCellColor" /></div>
+        <div class="item item-borderless col col-75">Month Font</div>
+        <div class="item item-borderless col">
+            <select name="monthFont" ng-model="calendarData.monthFont" required="" ng-options="list for list in fontsNames" >
+                <option value="" disabled>Select One</option>
+            </select>
+        </div>       
+    </div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Month Font Color</div>
+        <div class="item item-borderless col"><input type="color" ng-model="calendarData.monthFontColor" /></div>
+    </div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Month Font Size</div>
+        <div class="item item-borderless col">
+            <select name="monthFont" ng-model="calendarData.monthFontSize" required="" ng-options="list for list in fontsSizes" >
+                <option value="" disabled>Select One</option>
+            </select>
+        </div>       
+    </div>
+
+    <div class="row"><h6> Day text and cell settings </h6></div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Day Background Color</div>
+        <div class="item item-borderless col"><input type="color" ng-model="calendarData.dayBackgroundColor" /></div>
+    </div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Day Font</div>
+        <div class="item item-borderless col">
+            <select name="monthFont" ng-model="calendarData.dayFont" required="" ng-options="list for list in fontsNames" >
+                <option value="" disabled>Select One</option>
+            </select>
+        </div>       
+    </div>
+
+   <div class="row">
+        <div class="item item-borderless col col-75">Day Font Color</div>
+        <div class="item item-borderless col"><input type="color" ng-model="calendarData.dayFontColor" /></div>
+    </div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Day Font Size</div>
+        <div class="item item-borderless col">
+            <select name="monthFont" ng-model="calendarData.dayFontSize" required="" ng-options="list for list in fontsSizes" >
+                <option value="" disabled>Select One</option>
+            </select>
+        </div>       
+    </div>
+
+    <div class="row"><h6> Date text and cell settings </h6></div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Date Background Color</div>
+        <div class="item item-borderless col"><input type="color" ng-model="calendarData.dateBackgroundColor" /></div>
+    </div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Date Font</div>
+        <div class="item item-borderless col">
+            <select name="monthFont" ng-model="calendarData.dateFont" required="" ng-options="list for list in fontsNames" >
+                <option value="" disabled>Select One</option>
+            </select>
+        </div>       
+    </div>
+
+   <div class="row">
+        <div class="item item-borderless col col-75">Date Font Color</div>
+        <div class="item item-borderless col"><input type="color" ng-model="calendarData.dateFontColor" /></div>
+    </div>
+
+    <div class="row">
+        <div class="item item-borderless col col-75">Date Font Size</div>
+        <div class="item item-borderless col">
+            <select name="monthFont" ng-model="calendarData.dateFontSize" required="" ng-options="list for list in fontsSizes" >
+                <option value="" disabled>Select One</option>
+            </select>
+        </div>       
     </div>
 
     <div class="row">
         <div class="item item-borderless col col-75">Grid Line Color</div>
         <div class="item item-borderless col"><input type="color" ng-model="calendarData.gridBorderColor" /></div>
     </div>
+
+    <h4> Calendar Event Related UI </h4>
 
     <div class="row">
         <div class="item item-borderless col col-75">Home Cell Color</div>
@@ -37,7 +120,7 @@
     </div>
 
     <div class="row">
-        <div class="item item-toggle item-borderless col col-75"> Flexible Cell Size </div>
+        <div class="item item-toggle item-borderless col col-75 select-label"> Flexible Cell Size </div>
         <div class="item item-borderless col">
           <label class="toggle toggle-calm">
                 <input type="checkbox" ng-model="calendarData.isFlexibleCellSize">
@@ -48,8 +131,38 @@
       </div> 
     </div>
 
+    <div class="list">
+      <label class="item item-radio">
+        <input type="radio" name="group">
+        <div class="radio-content">
+          <div class="item-content">
+            Event Icon Style 1
+          </div>
+          <i class="radio-icon ion-checkmark"></i>
+        </div>
+      </label>
+      <label class="item item-radio">
+        <input type="radio" name="group">
+        <div class="radio-content">
+          <div class="item-content">
+            Event Icon Style 2
+          </div>
+          <i class="radio-icon ion-checkmark"></i>
+        </div>
+      </label>
+      <label class="item item-radio">
+        <input type="radio" name="group">
+        <div class="radio-content">
+          <div class="item-content">
+            Event Icon Style 3
+          </div>
+          <i class="radio-icon ion-checkmark"></i>
+        </div>
+      </label>
+    </div>
+
     <div class="row">
-      <div class="item item-toggle item-borderless col col-75"> Google Calendar </div>
+      <div class="item item-toggle item-borderless col col-75 select-label"> Google Calendar </div>
       <div class="item item-borderless col">
           <label class="toggle toggle-calm">
                 <input type="checkbox" ng-model="calendarData.isGoogleCalendarData">
@@ -80,10 +193,14 @@
 
 
 
-<div class="gap100"></div>
-<div class="loginBtnHldr text-center bottom20">
-    <button type="submit" class="button button-outline button-calm button-block">Continue</button>
+    <div class="gap100 home-page"></div>
+    
 </div>
-</form>
 </ion-content>
+<div class="bar bar-footer bar-balanced button-footer">
+<!--   <div class="title">Footer</div> -->
+  <div class="title loginBtnHldr text-center bottom20">
+        <button type="submit" class="button button-outline button-calm button-block" ng-click="submitHandler()">Continue</button>
+    </div>
+</div>
 </ion-view>
