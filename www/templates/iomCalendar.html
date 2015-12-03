@@ -1,10 +1,31 @@
-<ion-view view-title="Calendar">
-	<ion-content class="padding calendar-view">
-		<div class="calendar-legend calendar-views">
+<ion-view>
+<ion-header-bar class="bar-stable bar bar-header disable-user-behavior" align-title="left"><button ng-click="calendarGoBack()" class="button back-button buttons  button-clear header-item"><i class="icon ion-android-arrow-back"></i> 
+        </button><div class="title title-left header-item" style="left: 36px;">Calendar</div>
+
+<div class="calendar-legend calendar-views sub-views">
 			<div><a href="" id="listClick" ng-click="listClickHandler()">List</a></div>
 			<div>|</div>
 			<div><a href="" id="monthClick" class="active-view" ng-click="monthClickHandler()">Month</a></div>
 		</div>
+        </ion-header-bar>
+	<!-- <ion-header-bar align-title="left" class="bar-positive">
+	  <div class="buttons">
+	    <button class="button" ng-click="$ionicGoBack()">Left Button</button>
+	  </div>
+
+
+
+	  <h1 class="title">Title!</h1>
+	  <div class="buttons">
+	    <button class="button">Right Button</button>
+	  </div>
+	</ion-header-bar> -->
+	<ion-content class="padding calendar-view">
+		<!-- <div class="calendar-legend calendar-views">
+			<div><a href="" id="listClick" ng-click="listClickHandler()">List</a></div>
+			<div>|</div>
+			<div><a href="" id="monthClick" class="active-view" ng-click="monthClickHandler()">Month</a></div>
+		</div> -->
 		<div id="listView" ng-show="isListViewActivated">
 		    <ion-list>
 			    <ion-item ng-repeat="item in listViewData track by $index" class="list-view">

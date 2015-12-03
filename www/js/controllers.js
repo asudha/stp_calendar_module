@@ -26,11 +26,15 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             $state.go('iomCalendar')
         }
     };
-}]).controller('IomCalendarCtrl', ['$scope', 'CONSTANTS', 'dataService', '$ionicModal', function($scope, CONSTANTS, dataService, $ionicModal) {
+}]).controller('IomCalendarCtrl', ['$scope', 'CONSTANTS', 'dataService', '$ionicModal', "$state", function($scope, CONSTANTS, dataService, $ionicModal, $state) {
     var eventsArray = [];
     $scope.homeColor = CONSTANTS.homeGameCellColor;
     $scope.awayColor = CONSTANTS.awayGameCellColor;
     $scope.selectedEvent = null;
+
+    $scope.calendarGoBack = function(){
+        $state.go("login");
+    }
 
     function getEventDate(event) {
         var dateobj = event.start;

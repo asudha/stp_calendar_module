@@ -127,9 +127,15 @@ a.fc-more{position:absolute;margin:0px;right:0px;width:25px;overflow:hidden;heig
 .align-right{text-align:right;}
 
 /* CSS Patch  */
+.sub-views.calendar-legend{position:absolute;right:0px;line-height:30px;}
+.sub-views.calendar-legend div{width:auto;float:right;color:#ffffff;line-height:37px;}
+.sub-views.calendar-legend div a{color:#ffffff;line-height:30px;}
+.sub-views.calendar-legend div a.active-view{color:#D0D0D0;}
+
 /*.bar .title.title-left{text-align:center;}
 .calendar-page .bar .title.title-left{text-align:left;}*/
 .game-details span{display:inline-block;}
 .game-details span.align-left{float:left;text-align:left;}
 .game-details span.align-right{float:right;text-align:right;}
 .bar .title.title-center{text-align:center;}
+.align-center{text-align:center!important;}
