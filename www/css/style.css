@@ -207,6 +207,7 @@ h6 {
 }
 
 @font-face {
+<<<<<<< HEAD
     font-family: "OswaldBold";
     src: url("../fonts/oswald.bold-webfont.eot?1415356711");
     src: url("../fonts/oswald.bold-webfont.eot?1415356711?#iefix") format('embedded-opentype'), url('../fonts/oswald.bold-webfont.woff?1415356711') format('woff'), url('../fonts/oswald.bold-webfont.ttf?1415356711') format('truetype'), url('../fonts/oswald.bold-webfont.svg?1415356711#oswaldBold') format('svg');
@@ -408,6 +409,50 @@ h6 {
 }
 
 
+=======
+  font-family: "OswaldBold";
+  src: url("../fonts/oswald.bold-webfont.eot?1415356711");
+  src: url("../fonts/oswald.bold-webfont.eot?1415356711?#iefix") format('embedded-opentype'), url('../fonts/oswald.bold-webfont.woff?1415356711') format('woff'), url('../fonts/oswald.bold-webfont.ttf?1415356711') format('truetype'), url('../fonts/oswald.bold-webfont.svg?1415356711#oswaldBold') format('svg');
+  font-weight: normal;
+  font-style: normal; 
+}
+.calendar-views{text-align:right;}.calendar-views a{color:#000000;display:inline-block;padding:3px 10px;font-size:1em;text-decoration:none;}.calendar-views a:hover, .calendar-views a:focus, .calendar-views a.active-view{color:#73121a;}
+#gCalendar, .calendar-legend{padding:0px 10px;}#gCalendar .fc-toolbar .fc-center h2{font-size:1.5em;font-weight:normal;line-height:30px;}.calendar-legend div{font-size:0.85em;}
+#gCalendar .fc-toolbar button{background:none;border:0px;box-shadow:none;}
+.fc-row .fc-content-skeleton tbody td, .fc-row .fc-helper-skeleton tbody td{position:relative;}
+.calanderThumbImage{  width: 40px;    background-size: contain;
+    background-repeat: no-repeat;
+    height: 40px;
+    top: -5px;
+    position: absolute;}
+.calanderThumbImage_one{    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;width:100%;margin:0px;height: 32px;top: -22px;background-position-x: right;right: auto; }
+.calanderThumbImage_two{    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;width:100%;margin:0px;height: 34px;top: 1px;background-position-x: right;right: -5px;}
+.calanderThumbImage_three{background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;margin:0px;height: 30px;top: 3px;background-position-x: right;right: auto;width: 37px;left: -9px;}
+.calendar-view{padding:0px;}
+.calendar-view .calendar-views{padding:10px;background:rgba(0,0,0,0.1);}
+.calendar-view .calendar-views div{float:right;width:auto;line-height:26px;height:initial;}
+.calendar-view .calendar-views div a{line-height:20px;float:left;}
+.fc-toolbar{margin-bottom:5px;margin-top:10px;}
+.bar-stable .button.button-clear{color:#ffffff;}
+.scroll .row .item{font-family:Arial, Helvetica, sans-serif;text-indent:10px;font-size:1em;}.scroll .row{padding:0px;margin:0px 0px 5px 0px;}.event-details h1, .event-details .button.button-dark.button-clear{color:#ffffff;}
+.bar .button.button-clear.icon-left:before{font-size:20px;}.scroll-content .scroll .list{padding:5px;}
+.list-block{float:left;width:100%;position:relative;margin:0px 0px 35px 0px;border:1px solid rgba(0,0,0,0.5);padding:3px;overflow: visible;}
+.separator{background:url('../images/separator.png') no-repeat bottom center;position:absolute;width:100%;bottom:-25px;left:0;}
+.events-list:nth-child(even) .list-block{background:rgba(0,0,0,0.15);}
+.list-block div.logos_block{float:left;width:50%;position:relative;}
+.list-block div.logos_block div{position:absolute;bottom:0px;width:100%;text-align:center;}
+.list-block img.logos{width:100%;float:left;}
+.event-details-content{padding:2px;}
+.event-details-content.scroll-content .scroll .list{float:left;width:100%;padding:2px;position:relative;margin-bottom:5px;}
+.game-location{position:absolute;top:41%;left:50%;width:30px;line-height:30px;margin:-15px 0px 0px -15px;z-index:999;color:#ffffff;text-align:center;font-size:1.75em;}
+>>>>>>> 8128ae75869c5502bae7e3fd00d4ba51ef6ac71b
 /*.game-details{position:absolute;bottom:0px;color:#ffffff;width:100%;text-align:center;font-size:1.25em;}.game-details p{margin:0px;padding:0px;font-size:0.7em;line-height:35px;}*/
 
 .game-details {

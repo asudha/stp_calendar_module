@@ -16,8 +16,8 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     $scope.calendarData.homeGameEventColor = CONSTANTS.homeGameEventColor;
     $scope.calendarData.awayGameCellColor = CONSTANTS.awayGameCellColor;
     $scope.calendarData.awayGameEventColor = CONSTANTS.awayGameEventColor;
+    $scope.calendarData.isRssFeed = CONSTANTS.isRssFeed;
     $scope.calendarData.iconStyle = CONSTANTS.iconStyle;
-
     $scope.calendarData.isFlexibleCellSize = CONSTANTS.isFlexibleCellSize;
     $scope.calendarData.isGoogleCalendarData = CONSTANTS.isGoogleCalendarData;
     $scope.calendarData.pubCalId = CONSTANTS.pubCalId;
@@ -39,7 +39,6 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
         CONSTANTS.dateFontColor = $scope.calendarData.dateFontColor;
         CONSTANTS.dateFontSize = $scope.calendarData.dateFontSize;
         CONSTANTS.gridBorderColor = $scope.calendarData.gridBorderColor;
-       
         CONSTANTS.homeGameCellColor = $scope.calendarData.homeGameCellColor;
         CONSTANTS.homeGameEventColor = $scope.calendarData.homeGameEventColor;
         CONSTANTS.awayGameCellColor = $scope.calendarData.awayGameCellColor;
@@ -48,14 +47,20 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
         CONSTANTS.isFlexibleCellSize = $scope.calendarData.isFlexibleCellSize;
         CONSTANTS.isGoogleCalendarData = $scope.calendarData.isGoogleCalendarData;
         CONSTANTS.pubCalId = $scope.calendarData.pubCalId;
-
         $state.go('iomCalendar');
     };
     $scope.$watch('calendarData.monthFontSize', function(newValue, oldValue) {
-      if(newValue != oldValue){
-        $("#gridBackgroundColor").css("background-color","#"+newValue);
-      } 
+        if (newValue != oldValue) {
+            $("#gridBackgroundColor").css("background-color", "#" + newValue);
+        }
     }, true);
+
+    $scope.rssFeedValueChange = function(){
+      $scope.calendarData.isGoogleCalendarData = !$scope.calendarData.isRssFeed;
+    }
+    $scope.googleCalendarFeedValueChange = function(){
+      $scope.calendarData.isRssFeed = !$scope.calendarData.isGoogleCalendarData;
+    }
 }]).controller('IomCalendarCtrl', ['$scope', 'CONSTANTS', 'dataService', '$ionicModal', "$state", function($scope, CONSTANTS, dataService, $ionicModal, $state) {
     var eventsArray = [];
     $scope.homeColor = CONSTANTS.homeGameCellColor;
@@ -95,7 +100,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
         },
         //eventLimit: (CONSTANTS.isFlexibleCellSize) ? 0 : 2,
         //eventLimit: (CONSTANTS.isFlexibleCellSize) ? 0 : 1,
-        eventLimit: (!CONSTANTS.isGoogleCalendarData)?((CONSTANTS.iconStyle == "Style_1")?1:(CONSTANTS.iconStyle == "Style_2")?2:0):((CONSTANTS.isFlexibleCellSize) ? 0 : 1),
+        eventLimit: (!CONSTANTS.isGoogleCalendarData) ? ((CONSTANTS.iconStyle == "Style_1") ? 1 : (CONSTANTS.iconStyle == "Style_2") ? 2 : 0) : ((CONSTANTS.isFlexibleCellSize) ? 0 : 1),
         //eventLimit: 1,
         selectable: true,
         selectable: true,
@@ -116,33 +121,46 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
             if (event.imageUrl) {
                 element.context.innerHTML = "";
                 element.css("background-image", "url(" + event.imageUrl + ")");
-                element.addClass("calanderThumbImage");
+                if (event.multipleEvents) {
+                    if (element.hasClass("calanderThumbImage")) {
+                        element.removeClass("calanderThumbImage");
+                    }
+                    if (event.eventOrder == 1) {
+                        element.addClass("calanderThumbImage_one");
+                    } else if (event.eventOrder == 2) {
+                        element.addClass("calanderThumbImage_two");
+                    } else if (event.eventOrder == 3) {
+                        element.addClass("calanderThumbImage_three");
+                    }
+                } else {
+                    if (element.hasClass("calanderThumbImage_one")) {
+                        element.removeClass("calanderThumbImage_one");
+                    }
+                    if (element.hasClass("calanderThumbImage_two")) {
+                        element.removeClass("calanderThumbImage_two");
+                    }
+                    if (element.hasClass("calanderThumbImage_three")) {
+                        element.removeClass("calanderThumbImage_three");
+                    }
+                    element.addClass("calanderThumbImage");
+                }
             } else if (CONSTANTS.isGoogleCalendarData) {
                 element.css("background-color", CONSTANTS.awayGameEventColor);
             }
         },
         eventAfterAllRender: function() {
             $(".fc td, .fc th").css('border-color', CONSTANTS.gridBorderColor)
-
             $(".fc-toolbar .fc-center h2").css('font-family', CONSTANTS.monthFont);
-            $(".fc-toolbar .fc-center h2").css('color', CONSTANTS.monthFontColor);            
+            $(".fc-toolbar .fc-center h2").css('color', CONSTANTS.monthFontColor);
             $(".fc-toolbar .fc-center h2").css('font-size', CONSTANTS.monthFontSize);
-
             $(".fc-view-container .fc-head th").css('background-color', CONSTANTS.dayBackgroundColor);
             $(".fc-view-container .fc-head th").css('font-family', CONSTANTS.dayFont);
-            $(".fc-view-container .fc-head th").css('color', CONSTANTS.dayFontColor);            
+            $(".fc-view-container .fc-head th").css('color', CONSTANTS.dayFontColor);
             $(".fc-view-container .fc-head th").css('font-size', CONSTANTS.dayFontSize);
-
-           // $(".fc-ltr .fc-basic-view .fc-day-number").css('background-color', CONSTANTS.dateBackgroundColor);
+            // $(".fc-ltr .fc-basic-view .fc-day-number").css('background-color', CONSTANTS.dateBackgroundColor);
             $(".fc-ltr .fc-basic-view .fc-day-number").css('font-family', CONSTANTS.dateFont);
-            $(".fc-ltr .fc-basic-view .fc-day-number").css('color', CONSTANTS.dateFontColor);            
+            $(".fc-ltr .fc-basic-view .fc-day-number").css('color', CONSTANTS.dateFontColor);
             $(".fc-ltr .fc-basic-view .fc-day-number").css('font-size', CONSTANTS.dateFontSize);
-
-
-
-
-            
-
         },
         dayRender: function(date, cell) {
             cell.css("background-color", CONSTANTS.dateBackgroundColor);
@@ -277,7 +295,8 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     awayGameEventColor: '#11c1f3',
     isFlexibleCellSize: false,
     isGoogleCalendarData: false,
-    iconStyle:"Style_1",
+    iconStyle: "Style_1",
+    isRssFeed:true,
     pubCalId: 'b0rqjogof4sibclm8cul5itsjs',
     gcApiKey: 'AIzaSyC8gxu5eEtOBjfkwcNy2QRvA0wVOpFDNd0',
     fontsNames: ["Arial", "TimesNewRoman", "Arial Bold", "Oswald"],
@@ -286,15 +305,38 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     var dataServices = {};
     var serviceData = null;
     var teamsObj = null;
-    var eventsLists = null
+    var eventsLists = null;
+    var eventsInDays = null;
 
     function createTeamById() {
-        if (!teamsObj) {
-            teamsObj = {};
-            serviceData.teams.forEach(function(element, index, array) {
-                teamsObj[element.team_id] = array[index];
-            })
-        }
+        teamsObj = {};
+        serviceData.teams.forEach(function(element, index, array) {
+            teamsObj[element.team_id] = array[index];
+        })
+    }
+
+    function createEventByDay() {
+        serviceData.schedule.sort(function(a, b) {
+            if (a.timestamp > b.timestamp) {
+                return 1;
+            }
+            if (a.timestamp < b.timestamp) {
+                return -1;
+            }
+            return 0;
+        });
+        serviceData.schedule.forEach(function(element, index, array) {
+            if ((index > 0) && (element.day == array[index - 1].day)) {
+                serviceData.schedule[index].multipleEvents = true;
+                if (!serviceData.schedule[index - 1].multipleEvents) {
+                    serviceData.schedule[index - 1].multipleEvents = true;
+                }
+                serviceData.schedule[index].eventOrder = serviceData.schedule[index - 1].eventOrder + 1;
+            } else {
+                serviceData.schedule[index].eventOrder = 1;
+                serviceData.schedule[index].multipleEvents = false;
+            }
+        })
     }
     dataServices.getCalendarData = function(pURL, onSuccessCallback, onErrorCallback) {
         $http({
@@ -307,6 +349,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
         }).success(function(doc) {
             serviceData = doc;
             createTeamById();
+            createEventByDay();
             var events = [];
             if (doc && doc.schedule) {
                 doc.schedule.forEach(function(element, index, array) {
@@ -321,7 +364,10 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
                         day: element.day,
                         time: element.time,
                         game_type: element.game_type,
-                        isHomeGame: element.home_game
+                        isHomeGame: element.home_game,
+                        sameDayEvents: null,
+                        eventOrder: element.eventOrder,
+                        multipleEvents: element.multipleEvents
                     });
                 })
             }

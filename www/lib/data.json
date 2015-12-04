@@ -335,6 +335,18 @@
         "home_team_score": "",
         "other_team_score": ""
     }, {
+        "day": "Dec 6",
+        "time": "1:00 PM EST", 
+        "timestamp": "1449424800",
+        "game_type": "VS",
+        "home_game": 1,
+        "home_player_id": "65",
+        "away_player_id": "18",
+        "stadium": "Raymond James Stadium",
+        "result": "",
+        "home_team_score": "",
+        "other_team_score": ""
+    },{
         "day": "Aug 24",
         "time": "8:00 PM EDT",
         "timestamp": "1440460800",
@@ -503,18 +515,6 @@
         "home_team_score": "",
         "other_team_score": ""
     }, {
-        "day": "Dec 6",
-        "time": "1:00 PM EST", 
-        "timestamp": "1449424800",
-        "game_type": "VS",
-        "home_game": 1,
-        "home_player_id": "65",
-        "away_player_id": "18",
-        "stadium": "Raymond James Stadium",
-        "result": "",
-        "home_team_score": "",
-        "other_team_score": ""
-    },{
         "day": "Dec 6",
         "time": "1:00 PM EST",
         "timestamp": "1449424800",
