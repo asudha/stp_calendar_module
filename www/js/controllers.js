@@ -43,6 +43,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
         CONSTANTS.homeGameEventColor = $scope.calendarData.homeGameEventColor;
         CONSTANTS.awayGameCellColor = $scope.calendarData.awayGameCellColor;
         CONSTANTS.awayGameEventColor = $scope.calendarData.awayGameEventColor;
+        CONSTANTS.isRssFeed = $scope.calendarData.isRssFeed;
         CONSTANTS.iconStyle = $scope.calendarData.iconStyle;
         CONSTANTS.isFlexibleCellSize = $scope.calendarData.isFlexibleCellSize;
         CONSTANTS.isGoogleCalendarData = $scope.calendarData.isGoogleCalendarData;
