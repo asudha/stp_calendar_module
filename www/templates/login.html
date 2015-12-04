@@ -132,7 +132,7 @@
     </div>
 
     <div class="list rssFeed">
-      <label class="item item-radio">
+      <label class="item item-radio" ng-show="calendarData.isRssFeed">
         <input type="radio" name="group" value="Style_1" ng-model="calendarData.iconStyle">
         <div class="radio-content">
           <div class="item-content">
@@ -141,7 +141,7 @@
           <i class="radio-icon ion-checkmark"></i>
         </div>
       </label>
-      <label class="item item-radio">
+      <label class="item item-radio" ng-show="calendarData.isRssFeed">
         <input type="radio" name="group" value="Style_2" ng-model="calendarData.iconStyle">
         <div class="radio-content">
           <div class="item-content">
@@ -150,7 +150,7 @@
           <i class="radio-icon ion-checkmark"></i>
         </div>
       </label>
-      <label class="item item-radio">
+      <label class="item item-radio" ng-show="calendarData.isRssFeed">
         <input type="radio" name="group" value="Style_3" ng-model="calendarData.iconStyle">
         <div class="radio-content">
           <div class="item-content">
@@ -175,7 +175,7 @@
 
 
 
-    <div class="row border">
+    <div class="row border" ng-show="calendarData.isGoogleCalendarData">
         <div class="item item-toggle col col-75 select-label"> Flexible Cell Size </div>
         <div class="item item-borderless col">
           <label class="toggle toggle-calm">
@@ -187,7 +187,7 @@
       </div> 
     </div>
 
-    <div class="list joinAbove">
+    <div class="list joinAbove"  ng-show="calendarData.isGoogleCalendarData">
         <label class="item item-input item-stacked-label">
             <span class="input-label">Google Calendar URL</span>
             <input type="text" name="pubCalId" ng-model="calendarData.pubCalId" required placeholder="Public calendar id required">
