@@ -16,6 +16,8 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     $scope.calendarData.homeGameEventColor = CONSTANTS.homeGameEventColor;
     $scope.calendarData.awayGameCellColor = CONSTANTS.awayGameCellColor;
     $scope.calendarData.awayGameEventColor = CONSTANTS.awayGameEventColor;
+    $scope.calendarData.iconStyle = CONSTANTS.iconStyle;
+
     $scope.calendarData.isFlexibleCellSize = CONSTANTS.isFlexibleCellSize;
     $scope.calendarData.isGoogleCalendarData = CONSTANTS.isGoogleCalendarData;
     $scope.calendarData.pubCalId = CONSTANTS.pubCalId;
@@ -42,6 +44,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
         CONSTANTS.homeGameEventColor = $scope.calendarData.homeGameEventColor;
         CONSTANTS.awayGameCellColor = $scope.calendarData.awayGameCellColor;
         CONSTANTS.awayGameEventColor = $scope.calendarData.awayGameEventColor;
+        CONSTANTS.iconStyle = $scope.calendarData.iconStyle;
         CONSTANTS.isFlexibleCellSize = $scope.calendarData.isFlexibleCellSize;
         CONSTANTS.isGoogleCalendarData = $scope.calendarData.isGoogleCalendarData;
         CONSTANTS.pubCalId = $scope.calendarData.pubCalId;
@@ -82,14 +85,17 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
         theme: false, // set to true if you want to use customizable themes and not the default theme of full calendar .. refer to : http://fullcalendar.io/docs/display/theme/
         views: {
             agenda: {
-                eventLimit: 2 // limits event to 3 on a specific day in the calendar UI --   refer to : http://fullcalendar.io/docs/display/eventLimit/
+                //eventLimit:0
+                //eventLimit: (!CONSTANTS.isGoogleCalendarData)?((CONSTANTS.iconStyle == "Style_1")?0:(CONSTANTS.iconStyle == "Style_2")?1:2)):0 // limits event to 3 on a specific day in the calendar UI --   refer to : http://fullcalendar.io/docs/display/eventLimit/
             }
         },
         themeButtonIcons: { // left, right arrow icons for the month selection
             prev: 'left-arrow',
             next: 'right-arrow'
         },
-        eventLimit: (CONSTANTS.isFlexibleCellSize) ? 0 : 2,
+        //eventLimit: (CONSTANTS.isFlexibleCellSize) ? 0 : 2,
+        //eventLimit: (CONSTANTS.isFlexibleCellSize) ? 0 : 1,
+        eventLimit: (!CONSTANTS.isGoogleCalendarData)?((CONSTANTS.iconStyle == "Style_1")?1:(CONSTANTS.iconStyle == "Style_2")?2:0):((CONSTANTS.isFlexibleCellSize) ? 0 : 1),
         //eventLimit: 1,
         selectable: true,
         selectable: true,
@@ -271,6 +277,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     awayGameEventColor: '#11c1f3',
     isFlexibleCellSize: false,
     isGoogleCalendarData: false,
+    iconStyle:"Style_1",
     pubCalId: 'b0rqjogof4sibclm8cul5itsjs',
     gcApiKey: 'AIzaSyC8gxu5eEtOBjfkwcNy2QRvA0wVOpFDNd0',
     fontsNames: ["Arial", "TimesNewRoman", "Arial Bold", "Oswald"],
