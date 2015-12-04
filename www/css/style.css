@@ -26,15 +26,6 @@ p.error {
     position: relative;
 }
 
-.calanderThumbImage {
-    width: 40px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 40px;
-    top: 22px;
-    position: absolute;
-}
-
 .fc-event {
     border: none 0;
     background-color: transparent;
@@ -163,24 +154,19 @@ label.item-input {
     border: 0px;
 }
 
-.pane,
-.view {
+.pane, .view {
     background: #ededed;
 }
 
-.bar.bar-stable,
-.button.button-calm.button-outline,
-.event-details {
+.bar.bar-stable, .button.button-calm.button-outline, .event-details {
     background: linear-gradient(to bottom, #d12030 0%, #d12030 8%, #c41e2d 23%, #89151f 67%, #78121c 82%, #73121a 90%, #73121a 97%, #62141a 100%);
 }
 
-.button.button-calm.button-outline:hover,
-.button.button-calm.button-outline:focus {
+.button.button-calm.button-outline:hover, .button.button-calm.button-outline:focus {
     background: #78121c;
 }
 
-.bar.bar-stable .title,
-.button.button-calm.button-outline {
+.bar.bar-stable .title, .button.button-calm.button-outline {
     color: #ffffff;
     font-family: Oswald;
     border: 0px;
@@ -188,13 +174,7 @@ label.item-input {
     border-radius: 5px;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+body, h1, h2, h3, h4, h5, h6 {
     font-family: Oswald;
 }
 
@@ -226,14 +206,11 @@ h6 {
     text-decoration: none;
 }
 
-.calendar-views a:hover,
-.calendar-views a:focus,
-.calendar-views a.active-view {
+.calendar-views a:hover, .calendar-views a:focus, .calendar-views a.active-view {
     color: #73121a;
 }
 
-#gCalendar,
-.calendar-legend {
+#gCalendar, .calendar-legend {
     padding: 0px 10px;
 }
 
@@ -253,40 +230,25 @@ h6 {
     box-shadow: none;
 }
 
-.fc-row .fc-content-skeleton tbody td,
-.fc-row .fc-helper-skeleton tbody td {
+.fc-row .fc-content-skeleton tbody td, .fc-row .fc-helper-skeleton tbody td {
     position: relative;
 }
 
-.calanderThumbImage {
-    top: -8px;
-    width: 100%;
-    right: 0px;
-    margin: 0px;
-}
+.calanderThumbImage{  width: 40px;    background-size: contain;
+    background-repeat: no-repeat;
+    height: 40px;
+    top: -5px;
+    position: absolute;}
+.calanderThumbImage_one{    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;width:100%;margin:0px;height: 32px;top: -22px;background-position-x: right;right: auto; }
+.calanderThumbImage_two{    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;width:100%;margin:0px;height: 34px;top: 1px;background-position-x: right;right: -5px;}
+.calanderThumbImage_three{background-size: contain;
+    background-repeat: no-repeat;
 
-.calanderThumbImage.one {
-    height: 32px;
-    top: -22px;
-    background-position-x: right;
-    right: auto;
-}
-
-.calanderThumbImage.two {
-    height: 34px;
-    top: 1px;
-    background-position-x: right;
-    right: auto;
-}
-
-.calanderThumbImage.three {
-    height: 30px;
-    top: 3px;
-    background-position-x: right;
-    right: auto;
-    width: 37px;
-    left: -9px;
-}
+    position: absolute;margin:0px;height: 30px;top: 3px;background-position-x: right;right: auto;width: 37px;left: -9px;}
 
 .calendar-view {
     padding: 0px;
@@ -329,8 +291,7 @@ h6 {
     margin: 0px 0px 5px 0px;
 }
 
-.event-details h1,
-.event-details .button.button-dark.button-clear {
+.event-details h1, .event-details .button.button-dark.button-clear {
     color: #ffffff;
 }
 
@@ -607,8 +568,7 @@ a.fc-more {
     padding-right: 5px;
 }
 
-.login-page .scroll .row .item input[type="text"],
-.login-page .scroll .row .item select {
+.login-page .scroll .row .item input[type="text"], .login-page .scroll .row .item select {
     float: left;
     width: 100%;
     margin-top: 5px;
@@ -638,6 +598,8 @@ a.fc-more {
 
 .login-page .toggle.toggle-calm {
     margin-top: 5px;
+    float: right;
+    margin-right: 0px;
 }
 
 .scroll .row .item.select-label {
@@ -674,6 +636,7 @@ a.fc-more {
     height: 40px;
     background-color: transparent;
     margin: 0;
+    color: #000;
 }
 
 .scroll .row.title .item {
@@ -732,4 +695,13 @@ a.fc-more {
     font-size: 14px;
     display: block;
     padding: 0 0 4px;
+}
+.col-60 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 60%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 60%;
+    -ms-flex: 0 0 60%;
+    flex: 0 0 60%;
+    max-width: 60%;
 }

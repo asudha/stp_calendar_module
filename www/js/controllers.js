@@ -62,12 +62,6 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     $scope.googleCalendarFeedValueChange = function(){
       $scope.calendarData.isRssFeed = !$scope.calendarData.isGoogleCalendarData;
     }
-    $scopeisRSSFeedShown = function(){
-      return $scope.calendarData.isRssFeed;
-    }
-    $isGoogleCalendarFeedShown = function(){
-      return $scope.calendarData.isGoogleCalendarData;
-    }
 }]).controller('IomCalendarCtrl', ['$scope', 'CONSTANTS', 'dataService', '$ionicModal', "$state", function($scope, CONSTANTS, dataService, $ionicModal, $state) {
     var eventsArray = [];
     $scope.homeColor = CONSTANTS.homeGameCellColor;
@@ -285,15 +279,15 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     }
 }]).constant('CONSTANTS', {
     monthFont: "Arial Bold",
-    monthFontColor: "#aa11ff",
+    monthFontColor: "#000000",
     monthFontSize: 10,
-    dayBackgroundColor: "#123456",
+    dayBackgroundColor: "#ffffff",
     dayFont: "Arial Bold",
-    dayFontColor: "#aa11ff",
+    dayFontColor: "#000",
     dayFontSize: 10,
-    dateBackgroundColor: "#123456",
+    dateBackgroundColor: "#ffffff",
     dateFont: "Arial Bold",
-    dateFontColor: "#aa11ff",
+    dateFontColor: "#000000",
     dateFontSize: 10,
     gridBorderColor: '#dddddd',
     homeGameCellColor: '#11c1f3',
@@ -306,7 +300,7 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     isRssFeed:true,
     pubCalId: 'b0rqjogof4sibclm8cul5itsjs',
     gcApiKey: 'AIzaSyC8gxu5eEtOBjfkwcNy2QRvA0wVOpFDNd0',
-    fontsNames: ["Arial", "TimesNewRoman", "Arial Bold", "Oswald"],
+    fontsNames: ["Arial", "Verdana", "Oswald", "Sans-serif", "Courier New", "Georgia", "Impact"],
     fontsSizes: [10, 11, 12, 14, 18, 20, 22],
 }).factory("dataService", ['$http', function($http) {
     var dataServices = {};

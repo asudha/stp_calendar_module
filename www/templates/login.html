@@ -10,7 +10,7 @@
     <div class="row"><h6>Month text settings </h6></div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Month Font</div>
+        <div class="item item-borderless col col-60">Month Font</div>
         <div class="item item-borderless col">
             <select name="monthFont" ng-model="calendarData.monthFont" required="" ng-options="list for list in fontsNames" >
                 <option value="" disabled>Select One</option>
@@ -19,12 +19,12 @@
     </div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Month Font Color</div>
+        <div class="item item-borderless col col-60">Month Font Color</div>
         <div class="item item-borderless col"><input type="color" ng-model="calendarData.monthFontColor" /></div>
     </div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Month Font Size</div>
+        <div class="item item-borderless col col-60">Month Font Size</div>
         <div class="item item-borderless col">
             <select name="monthFont" ng-model="calendarData.monthFontSize" required="" ng-options="list for list in fontsSizes" >
                 <option value="" disabled>Select One</option>
@@ -35,12 +35,12 @@
     <div class="row"><h6> Day text and cell settings </h6></div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Day Background Color</div>
+        <div class="item item-borderless col col-60">Day Background Color</div>
         <div class="item item-borderless col"><input type="color" ng-model="calendarData.dayBackgroundColor" /></div>
     </div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Day Font</div>
+        <div class="item item-borderless col col-60">Day Font</div>
         <div class="item item-borderless col">
             <select name="monthFont" ng-model="calendarData.dayFont" required="" ng-options="list for list in fontsNames" >
                 <option value="" disabled>Select One</option>
@@ -49,12 +49,12 @@
     </div>
 
    <div class="row">
-        <div class="item item-borderless col col-75">Day Font Color</div>
+        <div class="item item-borderless col col-60">Day Font Color</div>
         <div class="item item-borderless col"><input type="color" ng-model="calendarData.dayFontColor" /></div>
     </div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Day Font Size</div>
+        <div class="item item-borderless col col-60">Day Font Size</div>
         <div class="item item-borderless col">
             <select name="monthFont" ng-model="calendarData.dayFontSize" required="" ng-options="list for list in fontsSizes" >
                 <option value="" disabled>Select One</option>
@@ -65,12 +65,12 @@
     <div class="row"><h6> Date text and cell settings </h6></div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Date Background Color</div>
+        <div class="item item-borderless col col-60">Date Background Color</div>
         <div class="item item-borderless col"><input type="color" ng-model="calendarData.dateBackgroundColor" /></div>
     </div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Date Font</div>
+        <div class="item item-borderless col col-60">Date Font</div>
         <div class="item item-borderless col">
             <select name="monthFont" ng-model="calendarData.dateFont" required="" ng-options="list for list in fontsNames" >
                 <option value="" disabled>Select One</option>
@@ -79,12 +79,12 @@
     </div>
 
    <div class="row">
-        <div class="item item-borderless col col-75">Date Font Color</div>
+        <div class="item item-borderless col col-60">Date Font Color</div>
         <div class="item item-borderless col"><input type="color" ng-model="calendarData.dateFontColor" /></div>
     </div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Date Font Size</div>
+        <div class="item item-borderless col col-60">Date Font Size</div>
         <div class="item item-borderless col">
             <select name="monthFont" ng-model="calendarData.dateFontSize" required="" ng-options="list for list in fontsSizes" >
                 <option value="" disabled>Select One</option>
@@ -93,35 +93,35 @@
     </div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Grid Line Color</div>
+        <div class="item item-borderless col col-60">Grid Line Color</div>
         <div class="item item-borderless col"><input type="color" ng-model="calendarData.gridBorderColor" /></div>
     </div>
 
     <h4> Calendar Event Related UI </h4>
-    <div class="row"><h6>Header Text</h6></div>
+    <div class="row"><h6>Events</h6></div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Home Cell Color</div>
+        <div class="item item-borderless col col-60">Home Cell Color</div>
         <div class="item item-borderless col"><input type="color" ng-model="calendarData.homeGameCellColor" /></div>
     </div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Home Event Color</div>
+        <div class="item item-borderless col col-60">Home Event Color</div>
         <div class="item item-borderless col"><input type="color" ng-model="calendarData.homeGameEventColor" /></div>
     </div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Away Cell Color</div>
+        <div class="item item-borderless col col-60">Away Cell Color</div>
         <div class="item item-borderless col"><input type="color" ng-model="calendarData.awayGameCellColor" /></div>
     </div>
 
     <div class="row">
-        <div class="item item-borderless col col-75">Away Event Color</div>
+        <div class="item item-borderless col col-60">Away Event Color</div>
         <div class="item item-borderless col"><input type="color" ng-model="calendarData.awayGameEventColor" /></div>
     </div>
 
     <div class="row title">
-      <div class="item item-toggle item-borderless col col-75 select-label">RSS Feed</div>
+      <div class="item item-toggle item-borderless col col-60 select-label">RSS Feed</div>
       <div class="item item-borderless col">
           <label class="toggle toggle-calm">
                 <input type="checkbox" ng-model="calendarData.isRssFeed" ng-change="rssFeedValueChange()">
@@ -163,7 +163,7 @@
     </div>
 
     <div class="row title">
-      <div class="item item-toggle item-borderless col col-75 select-label">Google Calendar Feed</div>
+      <div class="item item-toggle item-borderless col col-60 select-label">Google Calendar Feed</div>
       <div class="item item-borderless col">
           <label class="toggle toggle-calm">
                 <input type="checkbox" ng-change="googleCalendarFeedValueChange()" ng-model="calendarData.isGoogleCalendarData">
@@ -177,7 +177,7 @@
 
 
     <div class="row border" ng-show="calendarData.isGoogleCalendarData">
-        <div class="item item-toggle col col-75 select-label"> Flexible Cell Size </div>
+        <div class="item item-toggle col col-60 select-label"> Flexible Cell Size </div>
         <div class="item item-borderless col">
           <label class="toggle toggle-calm">
                 <input type="checkbox" ng-model="calendarData.isFlexibleCellSize">
