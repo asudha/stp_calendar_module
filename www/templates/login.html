@@ -1,200 +1,226 @@
 <ion-view>
-<ion-header-bar class="bar-stable bar bar-header disable-user-behavior"><div class="title align-center header-item">Tampa Bay Buccaneers</div></ion-header-bar>
-<!-- <div class="bar bar-subheader">
+    <ion-header-bar class="bar-stable bar bar-header disable-user-behavior">
+        <div class="title align-center header-item">Tampa Bay Buccaneers</div>
+    </ion-header-bar>
+    <!-- <div class="bar bar-subheader">
     <h2 class="title">STP Calendar</h2>
 </div> -->
-<ion-content class="padding has-subheader login-page">
-<div class="form form-horizontal">
-    <h4> Calendar UI </h4>
-
-    <div class="row"><h6>Month text settings </h6></div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Month Font</div>
-        <div class="item item-borderless col">
-            <select name="monthFont" ng-model="calendarData.monthFont" required="" ng-options="list for list in fontsNames" >
-                <option value="" disabled>Select One</option>
-            </select>
-        </div>       
-    </div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Month Font Color</div>
-        <div class="item item-borderless col"><input type="color" ng-model="calendarData.monthFontColor" /></div>
-    </div>
-
-    <div class="row">
+    <ion-content class="padding has-subheader login-page">
+        <div class="form form-horizontal">
+            <h4> Calendar UI </h4>
+            <div class="row">
+                <h6>Month text settings </h6></div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Month Font</div>
+                <div class="item item-borderless col">
+                    <select name="monthFont" ng-model="calendarData.monthFont" required="" ng-options="list for list in fontsNames">
+                        <option value="" disabled>Select One</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Month Font Color</div>
+                <div class="item item-borderless col">
+                    <input type="color" ng-model="calendarData.monthFontColor" />
+                </div>
+            </div>
+            <!-- <div class="row">
         <div class="item item-borderless col col-60">Month Font Size</div>
         <div class="item item-borderless col">
             <select name="monthFont" ng-model="calendarData.monthFontSize" required="" ng-options="list for list in fontsSizes" >
                 <option value="" disabled>Select One</option>
             </select>
         </div>       
-    </div>
-
-    <div class="row"><h6> Day text and cell settings </h6></div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Day Background Color</div>
-        <div class="item item-borderless col"><input type="color" ng-model="calendarData.dayBackgroundColor" /></div>
-    </div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Day Font</div>
-        <div class="item item-borderless col">
-            <select name="monthFont" ng-model="calendarData.dayFont" required="" ng-options="list for list in fontsNames" >
-                <option value="" disabled>Select One</option>
-            </select>
-        </div>       
-    </div>
-
-   <div class="row">
-        <div class="item item-borderless col col-60">Day Font Color</div>
-        <div class="item item-borderless col"><input type="color" ng-model="calendarData.dayFontColor" /></div>
-    </div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Day Font Size</div>
-        <div class="item item-borderless col">
-            <select name="monthFont" ng-model="calendarData.dayFontSize" required="" ng-options="list for list in fontsSizes" >
-                <option value="" disabled>Select One</option>
-            </select>
-        </div>       
-    </div>
-
-    <div class="row"><h6> Date text and cell settings </h6></div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Date Background Color</div>
-        <div class="item item-borderless col"><input type="color" ng-model="calendarData.dateBackgroundColor" /></div>
-    </div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Date Font</div>
-        <div class="item item-borderless col">
-            <select name="monthFont" ng-model="calendarData.dateFont" required="" ng-options="list for list in fontsNames" >
-                <option value="" disabled>Select One</option>
-            </select>
-        </div>       
-    </div>
-
-   <div class="row">
-        <div class="item item-borderless col col-60">Date Font Color</div>
-        <div class="item item-borderless col"><input type="color" ng-model="calendarData.dateFontColor" /></div>
-    </div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Date Font Size</div>
-        <div class="item item-borderless col">
-            <select name="monthFont" ng-model="calendarData.dateFontSize" required="" ng-options="list for list in fontsSizes" >
-                <option value="" disabled>Select One</option>
-            </select>
-        </div>       
-    </div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Grid Line Color</div>
-        <div class="item item-borderless col"><input type="color" ng-model="calendarData.gridBorderColor" /></div>
-    </div>
-
-    <h4> Calendar Event Related UI </h4>
-    <div class="row"><h6>Events</h6></div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Home Cell Color</div>
-        <div class="item item-borderless col"><input type="color" ng-model="calendarData.homeGameCellColor" /></div>
-    </div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Home Event Color</div>
-        <div class="item item-borderless col"><input type="color" ng-model="calendarData.homeGameEventColor" /></div>
-    </div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Away Cell Color</div>
-        <div class="item item-borderless col"><input type="color" ng-model="calendarData.awayGameCellColor" /></div>
-    </div>
-
-    <div class="row">
-        <div class="item item-borderless col col-60">Away Event Color</div>
-        <div class="item item-borderless col"><input type="color" ng-model="calendarData.awayGameEventColor" /></div>
-    </div>
-
-    <div class="row title">
-      <div class="item item-toggle item-borderless col col-60 select-label">RSS Feed</div>
-      <div class="item item-borderless col">
-          <label class="toggle toggle-calm">
-                <input type="checkbox" ng-model="calendarData.isRssFeed" ng-change="rssFeedValueChange()">
-                <div class="track">
-                    <div class="handle"></div>
+    </div> -->
+            <div class="list rangeHldr">
+                <span class="rangeLabel labelCustom">Month Font Size</span>
+                <div class="item range range-positive item-borderless">
+                    <i class="icon ion-ios-minus"></i>
+                    <input type="range" name="monthFont" ng-model="calendarData.monthFontSize" min="10" max="22" value="14">
+                    <i class="icon ion-ios-plus"></i>
                 </div>
-            </label>
-      </div>       
-    </div>
-
-    <div class="list rssFeed">
-      <label class="item item-radio" ng-show="calendarData.isRssFeed">
-        <input type="radio" name="group" value="Style_1" ng-model="calendarData.iconStyle">
-        <div class="radio-content">
-          <div class="item-content">
-            Event Icon Style (+ numbers)
-          </div>
-          <i class="radio-icon ion-checkmark"></i>
-        </div>
-      </label>
-      <label class="item item-radio" ng-show="calendarData.isRssFeed">
-        <input type="radio" name="group" value="Style_2" ng-model="calendarData.iconStyle">
-        <div class="radio-content">
-          <div class="item-content">
-            Event Icon Style (1 icon, + numbers)
-          </div>
-          <i class="radio-icon ion-checkmark"></i>
-        </div>
-      </label>
-      <label class="item item-radio" ng-show="calendarData.isRssFeed">
-        <input type="radio" name="group" value="Style_3" ng-model="calendarData.iconStyle">
-        <div class="radio-content">
-          <div class="item-content">
-            Event Icon Style (3 icons)
-          </div>
-          <i class="radio-icon ion-checkmark"></i>
-        </div>
-      </label>
-    </div>
-
-    <div class="row title">
-      <div class="item item-toggle item-borderless col col-60 select-label">Google Calendar Feed</div>
-      <div class="item item-borderless col">
-          <label class="toggle toggle-calm">
-                <input type="checkbox" ng-change="googleCalendarFeedValueChange()" ng-model="calendarData.isGoogleCalendarData">
-                <div class="track">
-                    <div class="handle"></div>
+                <span class="labelCustom rangeDemo">Demo Text will come here {{calendarData.monthFontSize}}</span>
+            </div>
+            <div class="row">
+                <h6> Day text and cell settings </h6></div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Day Background Color</div>
+                <div class="item item-borderless col">
+                    <input type="color" ng-model="calendarData.dayBackgroundColor" />
                 </div>
-            </label>
-      </div>       
-    </div>
-
-
-
-    <div class="row border" ng-show="calendarData.isGoogleCalendarData">
-        <div class="item item-toggle col col-60 select-label"> Flexible Cell Size </div>
-        <div class="item item-borderless col">
-          <label class="toggle toggle-calm">
-                <input type="checkbox" ng-model="calendarData.isFlexibleCellSize">
-                <div class="track">
-                    <div class="handle"></div>
+            </div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Day Font</div>
+                <div class="item item-borderless col">
+                    <select name="monthFont" ng-model="calendarData.dayFont" required="" ng-options="list for list in fontsNames">
+                        <option value="" disabled>Select One</option>
+                    </select>
                 </div>
-            </label>
-      </div> 
-    </div>
-
-    <div class="list joinAbove"  ng-show="calendarData.isGoogleCalendarData">
-        <label class="item item-input item-stacked-label">
-            <span class="labelCustom">Google Calendar URL</span>
-            <input type="text" name="pubCalId" ng-model="calendarData.pubCalId" required placeholder="Public calendar id required">
-            <p class="error" ng-show="myform.pubCalId.$invalid && myform.$submitted">Please provide a valid Google Calendar URL.</p>
-        </label>
-       <!--  <label class="item item-borderless item-input item-stacked-label">
+            </div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Day Font Color</div>
+                <div class="item item-borderless col">
+                    <input type="color" ng-model="calendarData.dayFontColor" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Day Font Size</div>
+                <div class="item item-borderless col">
+                    <select name="monthFont" ng-model="calendarData.dayFontSize" required="" ng-options="list for list in fontsSizes">
+                        <option value="" disabled>Select One</option>
+                    </select>
+                </div>
+            </div>
+            <div class="list rangeHldr">
+                <span class="rangeLabel labelCustom">Day Font Size</span>
+                <div class="item range range-positive item-borderless">
+                    <i class="icon ion-ios-minus"></i>
+                    <input type="range" name="" min="10" max="22" value="14">
+                    <i class="icon ion-ios-plus"></i>
+                </div>
+                <span class="labelCustom rangeDemo">Demo Text will come here</span>
+            </div>
+            <div class="row">
+                <h6> Date text and cell settings </h6></div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Date Background Color</div>
+                <div class="item item-borderless col">
+                    <input type="color" ng-model="calendarData.dateBackgroundColor" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Date Font</div>
+                <div class="item item-borderless col">
+                    <select name="monthFont" ng-model="calendarData.dateFont" required="" ng-options="list for list in fontsNames">
+                        <option value="" disabled>Select One</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Date Font Color</div>
+                <div class="item item-borderless col">
+                    <input type="color" ng-model="calendarData.dateFontColor" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Date Font Size</div>
+                <div class="item item-borderless col">
+                    <select name="monthFont" ng-model="calendarData.dateFontSize" required="" ng-options="list for list in fontsSizes">
+                        <option value="" disabled>Select One</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Grid Line Color</div>
+                <div class="item item-borderless col">
+                    <input type="color" ng-model="calendarData.gridBorderColor" />
+                </div>
+            </div>
+            <div class="list rangeHldr">
+                <span class="rangeLabel labelCustom">Date Font Size</span>
+                <div class="item range range-positive item-borderless">
+                    <i class="icon ion-ios-minus"></i>
+                    <input type="range" name="" min="10" max="22" value="14">
+                    <i class="icon ion-ios-plus"></i>
+                </div>
+                <span class="labelCustom rangeDemo">Demo Text will come here</span>
+            </div>
+            <h4> Calendar Event Related UI </h4>
+            <div class="row">
+                <h6>Events</h6></div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Home Cell Color</div>
+                <div class="item item-borderless col">
+                    <input type="color" ng-model="calendarData.homeGameCellColor" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Home Event Color</div>
+                <div class="item item-borderless col">
+                    <input type="color" ng-model="calendarData.homeGameEventColor" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Away Cell Color</div>
+                <div class="item item-borderless col">
+                    <input type="color" ng-model="calendarData.awayGameCellColor" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="item item-borderless col col-60">Away Event Color</div>
+                <div class="item item-borderless col">
+                    <input type="color" ng-model="calendarData.awayGameEventColor" />
+                </div>
+            </div>
+            <div class="row title">
+                <div class="item item-toggle item-borderless col col-60 select-label">RSS Feed</div>
+                <div class="item item-borderless col">
+                    <label class="toggle toggle-calm">
+                        <input type="checkbox" ng-model="calendarData.isRssFeed" ng-change="rssFeedValueChange()">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="list rssFeed">
+                <label class="item item-radio" ng-show="calendarData.isRssFeed">
+                    <input type="radio" name="group" value="Style_1" ng-model="calendarData.iconStyle">
+                    <div class="radio-content">
+                        <div class="item-content">
+                            Event Icon Style (+ numbers)
+                        </div>
+                        <i class="radio-icon ion-checkmark"></i>
+                    </div>
+                </label>
+                <label class="item item-radio" ng-show="calendarData.isRssFeed">
+                    <input type="radio" name="group" value="Style_2" ng-model="calendarData.iconStyle">
+                    <div class="radio-content">
+                        <div class="item-content">
+                            Event Icon Style (1 icon, + numbers)
+                        </div>
+                        <i class="radio-icon ion-checkmark"></i>
+                    </div>
+                </label>
+                <label class="item item-radio" ng-show="calendarData.isRssFeed">
+                    <input type="radio" name="group" value="Style_3" ng-model="calendarData.iconStyle">
+                    <div class="radio-content">
+                        <div class="item-content">
+                            Event Icon Style (3 icons)
+                        </div>
+                        <i class="radio-icon ion-checkmark"></i>
+                    </div>
+                </label>
+            </div>
+            <div class="row title">
+                <div class="item item-toggle item-borderless col col-60 select-label">Google Calendar Feed</div>
+                <div class="item item-borderless col">
+                    <label class="toggle toggle-calm">
+                        <input type="checkbox" ng-change="googleCalendarFeedValueChange()" ng-model="calendarData.isGoogleCalendarData">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="row border" ng-show="calendarData.isGoogleCalendarData">
+                <div class="item item-toggle col col-60 select-label"> Flexible Cell Size </div>
+                <div class="item item-borderless col">
+                    <label class="toggle toggle-calm">
+                        <input type="checkbox" ng-model="calendarData.isFlexibleCellSize">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="list joinAbove" ng-show="calendarData.isGoogleCalendarData">
+                <label class="item item-input item-stacked-label">
+                    <span class="labelCustom">Google Calendar URL</span>
+                    <input type="text" name="pubCalId" ng-model="calendarData.pubCalId" required placeholder="Public calendar id required">
+                    <p class="error" ng-show="myform.pubCalId.$invalid && myform.$submitted">Please provide a valid Google Calendar URL.</p>
+                </label>
+                <!--  <label class="item item-borderless item-input item-stacked-label">
             <span class="input-label">Google Calendar URL</span>
             <input type="text" name="pubCalId" ng-model="calendarData.pubCalId" required placeholder="Public calendar id required">
             <p class="error" ng-show="myform.pubCalId.$invalid && myform.$submitted">Please provide a valid Google Calendar URL.</p>
@@ -204,18 +230,14 @@
             <input type="text" name="pubCalId" ng-model="calendarData.pubCalId" required placeholder="Public calendar id required">
             <p class="error" ng-show="myform.pubCalId.$invalid && myform.$submitted">Please provide a valid Google Calendar URL.</p>
         </label> -->
+            </div>
+            <div class="gap40 home-page"></div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer bar-balanced button-footer">
+        <!--   <div class="title">Footer</div> -->
+        <div class="title loginBtnHldr text-center bottom20">
+            <button type="submit" class="button button-outline button-calm button-block" ng-click="submitHandler()">Continue</button>
+        </div>
     </div>
-
-
-
-    <div class="gap40 home-page"></div>
-    
-</div>
-</ion-content>
-<div class="bar bar-footer bar-balanced button-footer">
-<!--   <div class="title">Footer</div> -->
-  <div class="title loginBtnHldr text-center bottom20">
-        <button type="submit" class="button button-outline button-calm button-block" ng-click="submitHandler()">Continue</button>
-    </div>
-</div>
 </ion-view>
