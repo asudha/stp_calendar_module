@@ -123,7 +123,7 @@
       <div class="item item-toggle item-borderless col col-75 select-label">RSS Feed</div>
       <div class="item item-borderless col">
           <label class="toggle toggle-calm">
-                <input type="checkbox" ng-model="calendarData.isRssFeed">
+                <input type="checkbox" ng-model="calendarData.isRssFeed" ng-change="rssFeedValueChange()">
                 <div class="track">
                     <div class="handle"></div>
                 </div>
@@ -165,7 +165,7 @@
       <div class="item item-toggle item-borderless col col-75 select-label">Google Calendar Feed</div>
       <div class="item item-borderless col">
           <label class="toggle toggle-calm">
-                <input type="checkbox" ng-model="calendarData.isGoogleCalendarData">
+                <input type="checkbox" ng-change="googleCalendarFeedValueChange()" ng-model="calendarData.isGoogleCalendarData">
                 <div class="track">
                     <div class="handle"></div>
                 </div>

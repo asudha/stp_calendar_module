@@ -12,13 +12,6 @@ p.error{color:red;}
 .orange {box-shadow:inset 0 0 10px orange}
 .divBorder{border: 1px solid; width:34px; height:34px; display:inline-block;top:12px;position: relative;}
 
-.calanderThumbImage{
-	width: 40px;    background-size: contain;
-    background-repeat: no-repeat;
-    height: 40px;
-    top: 22px;
-    position: absolute;
-}
 .fc-event {    border: none 0;
     background-color:transparent;}
 
@@ -87,10 +80,21 @@ body, h1, h2, h3, h4, h5, h6{font-family:Oswald;}
 #gCalendar, .calendar-legend{padding:0px 10px;}#gCalendar .fc-toolbar .fc-center h2{font-size:1.5em;font-weight:normal;line-height:30px;}.calendar-legend div{font-size:0.85em;}
 #gCalendar .fc-toolbar button{background:none;border:0px;box-shadow:none;}
 .fc-row .fc-content-skeleton tbody td, .fc-row .fc-helper-skeleton tbody td{position:relative;}
-.calanderThumbImage{top:-8px;width:100%;right:0px;margin:0px;}
-.calanderThumbImage.one{height: 32px;top: -22px;background-position-x: right;right: auto;}
-.calanderThumbImage.two{height: 34px;top: 1px;background-position-x: right;right: auto;}
-.calanderThumbImage.three{height: 30px;top: 3px;background-position-x: right;right: auto;width: 37px;left: -9px;}
+.calanderThumbImage{  width: 40px;    background-size: contain;
+    background-repeat: no-repeat;
+    height: 40px;
+    top: -5px;
+    position: absolute;}
+.calanderThumbImage_one{    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;width:100%;margin:0px;height: 32px;top: -22px;background-position-x: right;right: auto; }
+.calanderThumbImage_two{    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;width:100%;margin:0px;height: 34px;top: 1px;background-position-x: right;right: -5px;}
+.calanderThumbImage_three{background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;margin:0px;height: 30px;top: 3px;background-position-x: right;right: auto;width: 37px;left: -9px;}
 .calendar-view{padding:0px;}
 .calendar-view .calendar-views{padding:10px;background:rgba(0,0,0,0.1);}
 .calendar-view .calendar-views div{float:right;width:auto;line-height:26px;height:initial;}
