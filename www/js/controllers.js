@@ -23,6 +23,9 @@ angular.module('starter.controllers', []).controller('LoginCtrl', ['$scope', '$s
     $scope.calendarData.pubCalId = CONSTANTS.pubCalId;
     $scope.fontsNames = CONSTANTS.fontsNames;
     $scope.fontsSizes = CONSTANTS.fontsSizes;
+    $scope.loginHandler = function() {
+        alert("login clicked")
+    }
     $scope.submitHandler = function() {
         if (window.cordova && cordova.plugins && cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.close();
